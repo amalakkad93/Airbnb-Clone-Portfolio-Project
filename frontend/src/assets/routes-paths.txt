@@ -1,0 +1,74 @@
+signup
+/api//users
+
+login
+api/session
+
+current user
+api/session
+
+*****************SPOTS**********************
+
+get all spots
+api/spots
+
+create spot
+api/spots
+
+create an image for a spot
+/api/spots/:spotId/images
+
+get spots of current user
+/api/spots/current
+
+get Details of a spot by Id
+/api/spots/:spotId
+
+edit spot
+/api/spots/:spotId
+
+delete spot
+/api/spots/:spotId
+
+delete a spot image
+/api/spot-images/:imageId
+
+*******************REVIEWS*************************
+
+*create a review for a spot
+/api/spots/:spotId/reviews
+
+create an image for a review
+/api/reviews/:reviewId/images
+
+get a reviews of current user
+/api/reviews/current
+
+get a reviews by spotId
+/api/spots/:spotId/reviews
+
+edit review
+/api/reviews/:reviewId
+
+delete review
+/api/reviews/:reviewId
+
+delete a review image
+/api/review-images/:imageId
+
+*********************BOOKING*****************************
+
+create a booking based on a spotId
+/api/spots/:spotId/bookings
+
+get all current user's bookings
+/api/bookings/current
+
+get all booking for a spot by Id
+/api/spots/:spotId/bookings
+
+edit booking
+/api/bookings/:bookingId
+
+delete booking
+/api/bookings/:bookingId

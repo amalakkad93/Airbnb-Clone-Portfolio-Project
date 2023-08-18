@@ -1,0 +1,159 @@
+
+
+.tile-parent {
+
+}
+
+img {
+  border-radius: 25px;
+}
+
+
+.spot-images-and-below-details-containers {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+}
+
+.name-Location-container {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.spot-images-containers {
+  width: 100%
+
+
+}
+
+.left-spot-image-container {
+  width:50%;
+  padding-top:36%;
+  display:inline-block;
+  border-radius: 5px;
+
+  position: relative;
+  overflow: hidden;
+}
+.right-spot-image-container{
+  display:inline-block;
+  width:49.6%;
+  gap: 5px;
+  border-radius: 10px;
+  flex-wrap: wrap;
+
+}
+
+.resize{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  padding: 5px;
+}
+.right-image{
+  width:50%;
+  padding-top:36%;
+  display:inline-block;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* .sidePiece{
+
+width:50%;
+height:50%;
+} */
+.reviews-info-and-rating-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 70%;
+  padding-bottom: 10px;
+  align-items: center;
+  border: 3px solid black;
+  border-radius: 0.5rem;
+  gap: 0.25rem;
+}
+.reserve-btn button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background-color: #FF5A5F;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.reserve-btn {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background-color: #FF5A5F;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.price-rating-number-of-reviews-container {
+  display: flex;
+  /* flex-direction: column; */
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+}
+.details-container {
+  display: flex;
+
+  flex-direction: row;
+  border-bottom: 2px solid black;
+
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
+}
+.spot-number-of-reviews-and-rating-container{
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+
+  /* flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem; */
+}
+
+/* .borderBox{
+  width:20%;
+  text-align: right;
+} */
+.spot-detail-below-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+ReviewList {
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* gap: 0.25rem; */
+  border-bottom: 2px solid black;
+}

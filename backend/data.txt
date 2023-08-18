@@ -1,0 +1,33 @@
+npx sequelize-cli model:generate --name ReviewImage  --attributes reviewId:integer,url:string
+npx sequelize-cli model:generate --name Booking  --attributes spotId:integer,userId:integer,startDate:date,endDate:date
+npx sequelize-cli model:generate --name Review  --attributes spotId:integer,userId:integer,review:string,stars:integer
+npx sequelize-cli model:generate --name Spot  --attributes ownerId:integer,address:string,city:string,state:string,country:string,lat:decimal,lng:decimal,name:string,description:string,price:decimal
+npx sequelize-cli model:generate --name SpotImage  --attributes spotId:integer,url:string,preview:boolean
+
+
+npx sequelize-cli seed:generate --name spots
+npx sequelize-cli seed:generate --name reviews
+npx sequelize-cli seed:generate --name review-images
+npx sequelize-cli seed:generate --name spot-images
+npx sequelize-cli seed:generate --name bookings
+
+npx dotenv sequelize-cli db:seed:all
+========================
+git branch
+git checkout dev
+git merge main
+====================
+
+=======================================
+rm db/dev.db
+npx dotenv sequelize-cli db:migrate:undo:all
+npx dotenv sequelize-cli db:migrate
+npx dotenv sequelize-cli db:seed:all
+npx dotenv sequelize-cli db:seed:undo:all
+npx dotenv sequelize-cli db:seed:all
+========================================
+npx dotenv sequelize-cli db:seed:undo:all
+npx dotenv sequelize-cli db:migrate:undo:all
+npx dotenv sequelize-cli db:migrate
+npx dotenv sequelize-cli db:seed:all
+========================================
