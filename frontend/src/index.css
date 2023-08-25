@@ -10,3 +10,8 @@
 body {
   padding: 22px;
 }
+button {
+  background-color: #FF5A5F;
+  color: white;
+  border-radius: 5px;
+}

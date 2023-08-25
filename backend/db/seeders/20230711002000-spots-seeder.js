@@ -13,7 +13,7 @@ module.exports = {
 
     await Spot.bulkCreate([
       {
-        ownerId: 1,
+        ownerId: 2,
         address: "111 Joy Rd",
         city: "Occidental",
         state: "California",
@@ -25,7 +25,7 @@ module.exports = {
         price: 1500.00,
       },
       {
-        ownerId: 2,
+        ownerId: 3,
         address: "2020 Wainiha Powerhouse Rd",
         city: "Hanalei",
         state: " Hawaii",
@@ -37,7 +37,7 @@ module.exports = {
         price: 566.00,
       },
       {
-        ownerId: 3,
+        ownerId: 4,
         address: "222 San Rafael Ave",
         city: "Santa Barbara",
         state: "California",
@@ -49,7 +49,7 @@ module.exports = {
         price: 140.00,
       },
       {
-        ownerId: 4,
+        ownerId: 5,
         address: "916 Seaboard Rd",
         city: "Malibu",
         state: "California",

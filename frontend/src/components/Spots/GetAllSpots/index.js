@@ -1,105 +1,49 @@
-// import { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { getAllSpotsThunk } from "../../../store/spots";
-// import { Link } from "react-router-dom";
-// import "./spots.css";
-
-// export default function GetAllSpots() {
-//   const spots = useSelector((state) => state.spots.allSpots);
-//   const spotArr = Object.values(spots);
-//   const dispatch = useDispatch();
-
-
-//   useEffect(() => {
-//     // dispatch inside the thunk
-//     dispatch(getAllSpotsThunk()); // -> [{}, ...]
-//   }, [dispatch]);
-
-//   // only use map inside do not use forEach
-//   return (
-//     <>
-//       {/* <h1>Home Page</h1> */}
-//       <div className="spots-main-container">
-//         <ul className="spots-box">
-//           {spotArr.map((spot) => (
-//             <li key={spot.id} className="spot-box">
-//               <Link to={`/spots/${spot.id}`}>
-//                 <img
-//                   src={spot.previewImage}
-//                   className="spot-img"
-//                   alt={spot.name}
-//                 />
-//               </Link>
-
-//             </li>
-//         </ul>
-
-//       </div>
-
-//     </>
-//   );
-// }
-// // after we dispatch...
-// if(returnFromFetch.errors){
-//   setErrors(returnFromFetch.errors)
-// } else {
-//   history.push(`/spots`)
-// }
-
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllSpotsThunk } from "../../../store/spots";
 import { Link } from "react-router-dom";
-// import "./spots.css";
-import "./AllSpots.css";
+import "./GetAllSpots.css";
 
 export default function GetAllSpots() {
-  const spots = useSelector((state) => state.spots.allSpots);
-  const spotArr = Object.values(spots);
+  // const spots = useSelector((state) => state.spots.allSpots);
+  const spots = Object.values(useSelector((state) => ( state.spots.allSpots ? state.spots.allSpots : [])));
+  // const spotArr = Object.values(spots);
   const dispatch = useDispatch();
 
-
   useEffect(() => {
-    // dispatch inside the thunk
-    dispatch(getAllSpotsThunk()); // -> [{}, ...]
+    dispatch(getAllSpotsThunk());
   }, [dispatch]);
 
-  // only use map inside do not use forEach
+  console.log("*************spots", spots);
+
   return (
     <>
-      {/* <h1>Home Page</h1> */}
-      {/* <div className="spots-box"> */}
-      <div className="spots-box">
-        {spotArr.map((spot) => (
-          <Link to={`/spots/${spot.id}`} className="no-underline">
-            <div className="spot-box">
-              <img
-                src={spot.previewImage}
-                className="spot-img"
-                alt={spot.name}
-              />
-              {/* <p> detail</p> */}
-              <div className="spot-info-flex">
-                {/* <h3 className="spot-title">{spot.name}</h3> */}
-                <div className="spot-city-state-rating">
-                  <p>{`${spot.city}, ${spot.state}`}</p>
-                  <p>{spot.avgRating.toFixed(1)}</p>
-                </div>
+      <div className="spots-main-container">
+        {spots && spots.map((spot) => (
+            <Link
+              to={`/spots/${spot.id}`}
+              style={{ textDecoration: "none", color: "var(--black)" }}
+            >
+              <div className="spot-box" title={spot.name}>
 
-                <p style={{ margin: "0.2rem", fontSize: "1rem", color: "var(--black",}}>
-                  <span style={{ fontWeight: "600" }}>${spot.price}</span> night
-                </p>
+                <img src={spot.previewImage} className="spot-img" alt={spot.name}/>
+
+                <div className="spot-info-flex">
+                  {/* <h3 className="spot-title">{spot.name}</h3> */}
+                  <div className="spot-city-state-rating-div">
+
+                  <p>{`${spot.city}, ${spot.state}`}</p>
+                  { spot.avgRating ? <p>⭐{spot.avgRating.toFixed(1)}</p> : <p>⭐New</p> }
+
+                  </div>
+                  <div className="price-div">
+                    <p className="p-style"><span className="span-style">${spot.price}</span> night </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
       </div>
     </>
   );
 }
-// after we dispatch...
-// if(returnFromFetch.errors){
-//   setErrors(returnFromFetch.errors)
-// } else {
-//   history.push(`/spots`)
-// }

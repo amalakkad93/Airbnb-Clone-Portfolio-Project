@@ -8,8 +8,11 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import { useNavigate } from "react-router-dom";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCircle, faBars } from '@fortawesome/free-solid-svg-icons';
+
+
 import "./Navigation.css";
-// import "./ProfileButton.css";
 
 
 function ProfileButton({ user }) {
@@ -50,10 +53,13 @@ function ProfileButton({ user }) {
   return (
     <>
     <div className="profile-dropdown-container">
+      <div className="btn">
+        <button className="navigation-btn" aria-label="Main navigation menu" onClick={openMenu}>
+          <FontAwesomeIcon icon={faBars} className="menu-icon" />
+          <FontAwesomeIcon icon={faUserCircle} className="profile-icon" />
+        </button>
+      </div>
 
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
-      </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>

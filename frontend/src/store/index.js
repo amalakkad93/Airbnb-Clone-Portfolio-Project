@@ -4,11 +4,13 @@ import sessionReducer from "./session";
 import spotReducer from "./spots";
 import reviewReducer from "./reviews";
 
+// this constructs the SHAPE of your store
 const rootReducer = combineReducers({
   session: sessionReducer,
-  spots: spotReducer,
+  spots: spotReducer,  // (state={}, action) => ({ allSpots: {}, singleSpot: {}}),
   reviews: reviewReducer,
-  // (state={}, action) => ({ allSpots: {}, singleSpot: {}}),
+  // bookings: bookingReducer, // { userBookings: [], spotBookings: [] },
+  // spotSearch: spotSearchReducer, // { results: [], page: null, size: null }
 });
 
 let enhancer;

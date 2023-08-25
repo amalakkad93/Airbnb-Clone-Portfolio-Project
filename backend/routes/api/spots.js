@@ -407,8 +407,6 @@ router.post('/:spotId/bookings', requireAuth, authCatch, validateBooking, displa
   const spotId = req.params.spotId;
   const userId = req.user.id;
 
-
-
   const startBooking = await Booking.findOne({
       where: {
           spotId: spotId,
