@@ -33,7 +33,7 @@ export default function GetAllSpots() {
                   <div className="spot-city-state-rating-div">
 
                   <p>{`${spot.city}, ${spot.state}`}</p>
-                  { spot.avgRating ? <p>⭐{spot.avgRating.toFixed(1)}</p> : <p>⭐New</p> }
+                  { spot.avgRating ? <p>★{spot.avgRating.toFixed(1)}</p> : <p>★New</p> }
 
                   </div>
                   <div className="price-div">
