@@ -8,6 +8,7 @@ import OpenModalButton from "../../OpenModalButton";
 
 import "./GetSpotDetail.css";
 
+
 export default function SpotDetail() {
   const { spotId } = useParams();
   const dispatch = useDispatch();
@@ -41,7 +42,7 @@ if (!spot || !spot.id) return null;
     <div className="tile-parent">
        {/* *********************Name and Location Container**************************** */}
        <div className="name-Location-container">
-            <h2>{spot.name}</h2>
+            <h1>{spot.name}</h1>
             <span className="location">{`${spot.city}, ${spot.state}, ${spot.country}`}</span>
        </div>
        {/* *********************Spot Images Container**************************** */}
@@ -81,7 +82,10 @@ if (!spot || !spot.id) return null;
                       </p>
                       {/* ---avgRating-numberOfReviews-p-tag--- */}
                       <p className="avgRating-numberOfReviews-p-tag">
-                         {`★ ${avgRating}${numberOfReviews !== "" ? ` · ${numberOfReviews} reviews` : ""}`}
+                         {/* {`★ ${avgRating}${numberOfReviews !== "" ? ` · ${numberOfReviews} reviews` : ""}`} */}
+                         <span className="avgRating-numberOfReviews-span">
+                         ★ {avgRating} {numberOfReviews !== "" && <> · <span className="grey-text">{numberOfReviews} reviews</span></>}
+                         </span>
                       </p>
                  </div>
                  {/* ++++++++++++++++++++++++++Reserve Btn+++++++++++++++++++++++++++++++++ */}
@@ -95,7 +99,9 @@ if (!spot || !spot.id) return null;
         <div className="reviews-container">
              <div className="review-and-post-Review-button">
              {/* =========Post Review Button========== */}
-                  <h2>{`★ ${avgRating}${numberOfReviews !== "" ? ` · ${numberOfReviews} reviews` : ""}`}</h2>
+                  {/* <h2>{`★ ${avgRating}${numberOfReviews !== "" ? ` · ${numberOfReviews} reviews` : ""}`}</h2> */}
+                  <h2 className="avgRating-numofReviews">★ {avgRating}{numberOfReviews !== "" ? ' · ' + numberOfReviews + ' reviews' : ''}</h2>
+
                   <OpenModalButton className="post-review-btn" buttonText="Post Your Review" modalComponent={<button  />} />
              </div>
              {/* =========Post Review Button========== */}

@@ -15,3 +15,13 @@ button {
   color: white;
   border-radius: 5px;
 }
+h1 {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 24pt;
+  font-weight: bold;
+}
+body, p, span, h2 {
+  font-family: 'Nunito Sans', sans-serif;
+  /* font-size: 14pt; */
+  font-weight:normal;
+}
