@@ -26,7 +26,7 @@ export default function SpotDetail() {
     return date.toLocaleString("en-US", options);
   };
 
-// console.log("***************************",spot)
+console.log("***************************",spot)
 
   useEffect(() => {
     dispatch(getSpotDetailThunk(spotId));
@@ -35,7 +35,6 @@ export default function SpotDetail() {
   }, [dispatch, spotId, reloadPage]);
 
 if (!spot || !spot.id) return null;
-
 
   return (
     <>
@@ -49,12 +48,14 @@ if (!spot || !spot.id) return null;
        <div className="spot-images-container">
             {/* =================Left Spot Image================= */}
             <div className="left-spot-image-container">
-                 <img className="resize" src={spot.SpotImages[0]?.url} alt={spot.name}/>
+                 {/* <img className="resize" src={spot.SpotImages[0]?.url} alt={spot.name}/> */}
+                 {/* <img className="resize top-left-rounded" src={spot.SpotImages[0]?.url} alt={spot.name} /> */}
+                 <img className="resize left-rounded" src={spot.SpotImages[0]?.url} alt={spot.name} />
             </div>
             {/* ================Right Spot Images================ */}
             <div className="right-spot-image-container">
-                 {spot.SpotImages?.slice(1, 5).map((image, index) => (
-                       <div className="right-image" key={index}>
+                 {spot.SpotImages?.slice(1, 5).map((image, index, array) => (
+                       <div className={`right-image ${index === 1 ? "top-right-rounded" : ""} ${index === array.length - 1 ? "bottom-right-rounded" : ""}`} key={index}>
                          <img className="resize" src={image.url} alt={`Image ${index + 1}`}/>
                        </div>
                  ))}
@@ -80,7 +81,7 @@ if (!spot || !spot.id) return null;
                       </p>
                       {/* ---avgRating-numberOfReviews-p-tag--- */}
                       <p className="avgRating-numberOfReviews-p-tag">
-                         {`⭐ ${avgRating}${numberOfReviews !== "" ? ` · ${numberOfReviews} reviews` : ""}`}
+                         {`★ ${avgRating}${numberOfReviews !== "" ? ` · ${numberOfReviews} reviews` : ""}`}
                       </p>
                  </div>
                  {/* ++++++++++++++++++++++++++Reserve Btn+++++++++++++++++++++++++++++++++ */}
@@ -94,7 +95,7 @@ if (!spot || !spot.id) return null;
         <div className="reviews-container">
              <div className="review-and-post-Review-button">
              {/* =========Post Review Button========== */}
-                  <h2>{`⭐ ${avgRating}${numberOfReviews !== "" ? ` · ${numberOfReviews} reviews` : ""}`}</h2>
+                  <h2>{`★ ${avgRating}${numberOfReviews !== "" ? ` · ${numberOfReviews} reviews` : ""}`}</h2>
                   <OpenModalButton className="post-review-btn" buttonText="Post Your Review" modalComponent={<button  />} />
              </div>
              {/* =========Post Review Button========== */}
