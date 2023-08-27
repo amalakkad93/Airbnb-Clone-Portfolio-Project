@@ -1,3 +1,18 @@
+p, span {
+  font-size: 14pt;
+  font-weight: normal;
+  font-family: 'Nunito', sans-serif;
+  /* font-family: 'Nunito Sans', sans-serif; */
+  /* font-size: 24pt; */
+  /* font-weight: bold; */
+
+}
+/* h2 {
+  font-size: 24pt;
+  font-weight: bold;
+} */
+
+
 .tile-parent {
   max-width: 1000px;
   margin: 0 auto;
@@ -83,12 +98,17 @@
   margin-top: -7px;
 
 }
+.p-tag-same-font > p {
+  font-size: 14pt;
+  font-weight: 100;
+  font-family: 'Nunito', sans-serif;
+}
 .callout-information-box {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   /* width: 70%; */
-  width: 793px;
+  width: 1190px;
   padding-bottom: 10px;
   align-items: center;
   border: 3px solid black;
@@ -109,6 +129,16 @@
 .spot-price {
   font-weight: 600;
   font-size: 20px;
+}
+/* .grey-text {
+  color: #717171;
+} */
+.avgRating-numberOfReviews-p-tag span.grey-text {
+  color: grey;
+}
+.location, .ownner-details, .avgRating-numberOfReviews-p-tag {
+  font-size: 18pt;
+  font-weight: bold;
 }
 
 /* .reserve-btn button {
@@ -201,4 +231,9 @@ ReviewList {
 .date-format {
   font-size: 1.1rem;
   color: grey;
+}
+
+.avgRating-numofReviews{
+  font-size: 18pt;
+  font-weight: bold;
 }
