@@ -10,54 +10,54 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
   async up (queryInterface, Sequelize) {
     await Review.bulkCreate([
-        {
-          spotId: 1,
-          userId: 1,
-          review: "This was an awesome spot!",
-          stars: 5
-        },
-        {
-          spotId: 1,
-          userId: 2,
-          review: "Had a great time at this spot!",
-          stars: 4
-        },
-        {
-          spotId: 1,
-          userId: 3,
-          review: "Nice place with beautiful views!",
-          stars: 4
-        },
-        {
-          spotId: 1,
-          userId: 4,
-          review: "Highly recommended!",
-          stars: 5
-        },
-        {
-          spotId: 1,
-          userId: 5,
-          review: "This was the worst spot I've been to!",
-          stars: 1
-        },
-        {
-          spotId: 1,
-          userId: 6,
-          review: "Not a fan of this place.",
-          stars: 2
-        },
-        {
-          spotId: 1,
-          userId: 7,
-          review: "Average experience, nothing special.",
-          stars: 3
-        },
-        {
-          spotId: 1,
-          userId: 8,
-          review: "Could have been better.",
-          stars: 2
-        },
+        // {
+        //   spotId: 1,
+        //   userId: 1,
+        //   review: "This was an awesome spot!",
+        //   stars: 5
+        // },
+        // {
+        //   spotId: 1,
+        //   userId: 2,
+        //   review: "Had a great time at this spot!",
+        //   stars: 4
+        // },
+        // {
+        //   spotId: 1,
+        //   userId: 3,
+        //   review: "Nice place with beautiful views!",
+        //   stars: 4
+        // },
+        // {
+        //   spotId: 1,
+        //   userId: 4,
+        //   review: "Highly recommended!",
+        //   stars: 5
+        // },
+        // {
+        //   spotId: 1,
+        //   userId: 5,
+        //   review: "This was the worst spot I've been to!",
+        //   stars: 1
+        // },
+        // {
+        //   spotId: 1,
+        //   userId: 6,
+        //   review: "Not a fan of this place.",
+        //   stars: 2
+        // },
+        // {
+        //   spotId: 1,
+        //   userId: 7,
+        //   review: "Average experience, nothing special.",
+        //   stars: 3
+        // },
+        // {
+        //   spotId: 1,
+        //   userId: 8,
+        //   review: "Could have been better.",
+        //   stars: 2
+        // },
 
         {
           spotId: 2,
@@ -65,48 +65,48 @@ module.exports = {
           review: "Absolutely loved the spot! The view was breathtaking, and the amenities were top-notch. Highly recommend!",
           stars: 5
         },
-        {
-          spotId: 2,
-          userId: 2,
-          review: "What a hidden gem! The spot was even better than expected. Cozy, clean, and surrounded by nature. Can't wait to visit again!",
-          stars: 5
-        },
-        {
-          spotId: 2,
-          userId: 3,
-          review: "Wow! This spot exceeded all expectations. The host was fantastic, and the location was perfect. Will definitely be back soon!",
-          stars: 5
-        },
-        {
-          spotId: 2,
-          userId: 4,
-          review: "An incredible experience from start to finish. The spot was beautifully designed, and the attention to detail was impeccable. 5 stars!",
-          stars: 5
-        },
-        {
-          spotId: 2,
-          userId: 5,
-          review:"If I could give more than 5 stars, I would. This spot is a little slice of paradise. I wish I could stay here forever!" ,
-          stars: 4
-        },
-        {
-          spotId: 2,
-          userId: 6,
-          review: "A dream come true! This spot felt like a luxury retreat. The hosts were warm and welcoming, and the spot had everything we needed.",
-          stars: 4
-        },
-        {
-          spotId: 2,
-          userId: 7,
-          review:"I can't say enough good things about this spot. From the stunning views to the comfortable beds, it was pure perfection.",
-          stars: 4
-        },
-        {
-          spotId: 2,
-          userId: 8,
-          review: "What a wonderful stay! The spot was immaculate, and the host went above and beyond to make us feel at home." ,
-          stars: 4
-        },
+        // {
+        //   spotId: 2,
+        //   userId: 2,
+        //   review: "What a hidden gem! The spot was even better than expected. Cozy, clean, and surrounded by nature. Can't wait to visit again!",
+        //   stars: 5
+        // },
+        // {
+        //   spotId: 2,
+        //   userId: 3,
+        //   review: "Wow! This spot exceeded all expectations. The host was fantastic, and the location was perfect. Will definitely be back soon!",
+        //   stars: 5
+        // },
+        // {
+        //   spotId: 2,
+        //   userId: 4,
+        //   review: "An incredible experience from start to finish. The spot was beautifully designed, and the attention to detail was impeccable. 5 stars!",
+        //   stars: 5
+        // },
+        // {
+        //   spotId: 2,
+        //   userId: 5,
+        //   review:"If I could give more than 5 stars, I would. This spot is a little slice of paradise. I wish I could stay here forever!" ,
+        //   stars: 4
+        // },
+        // {
+        //   spotId: 2,
+        //   userId: 6,
+        //   review: "A dream come true! This spot felt like a luxury retreat. The hosts were warm and welcoming, and the spot had everything we needed.",
+        //   stars: 4
+        // },
+        // {
+        //   spotId: 2,
+        //   userId: 7,
+        //   review:"I can't say enough good things about this spot. From the stunning views to the comfortable beds, it was pure perfection.",
+        //   stars: 4
+        // },
+        // {
+        //   spotId: 2,
+        //   userId: 8,
+        //   review: "What a wonderful stay! The spot was immaculate, and the host went above and beyond to make us feel at home." ,
+        //   stars: 4
+        // },
         {
           spotId: 3,
           userId: 1,

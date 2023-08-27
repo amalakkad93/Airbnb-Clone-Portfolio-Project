@@ -219,7 +219,8 @@ router.get('/:spotId', async (req, res) => {
       { model: Review },
       { model: SpotImage, attributes: ['id', 'url', 'preview'] },
       { model: User, attributes: ['id', 'firstName', 'lastName'] }
-    ]
+    ],
+    order: [[SpotImage, "preview", "DESC"]]
   });
 
   if (spot) {
@@ -340,7 +341,8 @@ router.get('/:spotId/reviews', async (req, res) => {
     where: { spotId: req.params.spotId },
   });
 
-  if (reviews.length === 0) return createErrorHandler(404, "Spot not found", {}, res);
+  // if (reviews.length === 0) return createErrorHandler(404, "Spot not found", {}, res);
+  if (reviews.length === 0) return res.json({ Reviews: [] });
 
   const updatedReviews = reviews.map((review) => {
     const reviewJSON = review.toJSON();
