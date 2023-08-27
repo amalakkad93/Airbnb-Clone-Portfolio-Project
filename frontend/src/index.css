@@ -19,9 +19,16 @@ h1 {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 24pt;
   font-weight: bold;
+  font-weight: 700;
 }
-body, p, span, h2 {
+body, span, h2 {
   font-family: 'Nunito Sans', sans-serif;
   /* font-size: 14pt; */
-  font-weight:normal;
+  /* font-weight:normal; */
+  /* font-weight: 400; */
+}
+p {
+  font-family: 'Nunito', sans-serif;
+  /* font-size: 14pt; */
+  /* font-weight:normal; */
 }

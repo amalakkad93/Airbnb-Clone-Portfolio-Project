@@ -341,7 +341,8 @@ router.get('/:spotId/reviews', async (req, res) => {
     where: { spotId: req.params.spotId },
   });
 
-  if (reviews.length === 0) return createErrorHandler(404, "Spot not found", {}, res);
+  // if (reviews.length === 0) return createErrorHandler(404, "Spot not found", {}, res);
+  if (reviews.length === 0) return res.json({ Reviews: [] });
 
   const updatedReviews = reviews.map((review) => {
     const reviewJSON = review.toJSON();

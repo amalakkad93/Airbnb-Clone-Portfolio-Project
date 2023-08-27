@@ -1,6 +1,11 @@
-body, p, span {
+p, span {
   font-size: 14pt;
   font-weight: normal;
+  font-family: 'Nunito', sans-serif;
+  /* font-family: 'Nunito Sans', sans-serif; */
+  /* font-size: 24pt; */
+  /* font-weight: bold; */
+
 }
 /* h2 {
   font-size: 24pt;
@@ -92,6 +97,11 @@ body, p, span {
   border-radius: 0.5rem; */
   margin-top: -7px;
 
+}
+.p-tag-same-font > p {
+  font-size: 14pt;
+  font-weight: 100;
+  font-family: 'Nunito', sans-serif;
 }
 .callout-information-box {
   display: flex;

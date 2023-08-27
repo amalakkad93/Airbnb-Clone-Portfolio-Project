@@ -45,7 +45,7 @@ export const getSpotDetailThunk = (spotId) => async (dispatch) => {
     dispatch(actionGetSingleSpot(Spot));
     return Spot;
   } else {
-    
+
     const errors = await res.json();
     return errors;
   }
