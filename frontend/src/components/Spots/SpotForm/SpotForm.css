@@ -1,0 +1,142 @@
+
+.spot-form{
+
+  width: 289px;
+  height: 233px;
+  background : white;
+  z-index: 1000;
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0,0,0,9);
+}
+
+
+.form-container label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+}
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.form-container  label:last-child {
+  margin-bottom: 0;
+}
+.form-container label > *:last-child {
+  margin-left: 10px;
+}
+.form-container input, select {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #e6e6e6;
+  /* padding: 0 10px; */
+  font-size: 16px;
+  margin-bottom: 20px;
+  border: 2px solid black;
+  background-color: rgb(207, 219, 252);
+}
+.form-container option {
+  background-color:white
+}
+.form-container input:focus {
+  outline: none;
+  border-color: black;
+}
+.form-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background-color: #FF5A5F;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #FF5A5F
+}
+.form-container .errors {
+  color: red;
+  margin-bottom: 20px;
+}
+.form-containerl {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.form-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.div-title{
+
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.price-dollar-sign input{
+
+  height: 20px;
+
+
+}
+.price-dollar-sign{
+  display: flex;
+
+  padding: 0px 10px;
+}
+.error-container{
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+
+}
+
+.city-state-input-box {
+
+  display: flex;
+
+  width: 100%;
+
+}
+.city {
+  width: 50%;
+  gap: 10px;
+  margin-right: 10px;
+}
+
+.lat-lng-input-box {
+
+  display: flex;
+
+  width: 100%;
+
+}
+.latitude {
+  width: 50%;
+  gap: 10px;
+  margin-right: 10px;
+}
+
