@@ -139,7 +139,6 @@ export const getOwnerAllSpotsThunk = () => async (dispatch) => {
     return Spots;
   } else {
     const errors = await res.json();
-
     return errors;
   }
 };

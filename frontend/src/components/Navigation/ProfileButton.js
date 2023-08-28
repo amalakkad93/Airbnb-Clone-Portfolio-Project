@@ -46,6 +46,7 @@ function ProfileButton({ user }) {
     e.preventDefault();
     dispatch(sessionActions.logout());
     closeMenu();
+    navigate('/');
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -66,8 +67,8 @@ function ProfileButton({ user }) {
             <li>{user.username}</li>
             <li>{user.firstName} {user.lastName}</li>
             <li>{user.email}</li>
-            <li><button className="Manage-spot-button" onClick={ (e) => {navigate('/owner/spots')}}>Manage Spots</button></li>
-            <li><button type="button" onClick={(e)=>{ navigate('/reviews/current') }}>Manage Reviews</button></li>
+            <li><button className="Manage-spot-button" onClick={ (e) => {closeMenu(); navigate('/owner/spots')}}>Manage Spots</button></li>
+            <li><button type="button" onClick={(e)=>{closeMenu(); navigate('/reviews/current') }}>Manage Reviews</button></li>
             <li><button onClick={logout} className="buttons">Log Out</button></li>
           </>
         ) : (

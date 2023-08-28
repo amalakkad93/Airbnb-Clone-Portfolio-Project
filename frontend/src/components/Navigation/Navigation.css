@@ -3,14 +3,23 @@
   margin: 0;
   padding: 0;
 } */
-
 .navBar-container {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 12px 0;
-  margin: -28px;
-  /* Prevent horizontal scroll */
+  width: 100%;
+  max-width: 1200px;  /* Adjust as needed */
+  margin: 0 auto;     /* Centers the navbar */
 }
+/* .navBar-container {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 12px 0;
+  margin: -28px;
+  margin-left: 402px;
+  margin-right: 402px;
+  width: 100%;
+} */
 
 .navBar-inner-container {
   display: flex;

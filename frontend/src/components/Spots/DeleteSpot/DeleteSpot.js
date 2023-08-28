@@ -5,7 +5,7 @@ import { getOwnerAllSpotsThunk } from "../../../store/spots";
 
 
 
-function DeleteSpot({spotId}) {
+export default function DeleteSpot({spotId}) {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
@@ -24,7 +24,7 @@ function DeleteSpot({spotId}) {
   const deleteSpotCallBack = async () => {
      await dispatch(deleteSpotThunk(spotId));
      await dispatch(getOwnerAllSpotsThunk());
-      closeModal();
+     closeModal();
   }
 
   return (
@@ -38,5 +38,3 @@ function DeleteSpot({spotId}) {
     </>
   );
 }
-
-export default DeleteSpot;

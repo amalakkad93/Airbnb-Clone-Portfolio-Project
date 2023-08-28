@@ -18,6 +18,7 @@ export const actionGetReviews = (reviews) => ({ type: GET_ALL_REVIEWS, reviews }
 // ***************************getAllReviewsThunk**************************
 // these functions hit routes
 export const getAllReviewsThunk = (spotId) => async (dispatch) => {
+
   try {
     // const res = await csrfFetch(`/api/spots/${spotId}/reviews`);
     const res = await fetch(`/api/spots/${spotId}/reviews`);

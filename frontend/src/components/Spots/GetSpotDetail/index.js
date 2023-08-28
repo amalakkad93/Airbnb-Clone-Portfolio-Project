@@ -90,14 +90,21 @@ if (loading || !spot || !spot.id) return <div>Loading...</div>;
                          <span className="spot-price">${spot.price}</span> night
                       </p>
                       {/* ---avgRating-numberOfReviews-p-tag--- */}
-                      <p className="avgRating-numberOfReviews-p-tag">
-                         {/* {`★ ${avgRating}${numberOfReviews !== "" ? ` · ${numberOfReviews} reviews` : ""}`} */}
+                      {/* <p className="avgRating-numberOfReviews-p-tag">
+
                          <span className="avgRating-numberOfReviews-span">
                               ★ {avgRating}{numberOfReviews && numberOfReviews !== "" ? <> · {numberOfReviews}
                               <span className="grey-text">{numberOfReviews === 1 ? ' review' : ' reviews'}</span></> : ''}
                          </span>
-
-                      </p>
+                      </p> */}
+                      <p className="avgRating-numberOfReviews-p-tag">
+                         <span className="avgRating-numberOfReviews-span">
+                              ★ {spot.avgStarRating ? spot.avgStarRating.toFixed(1) : <span className="boldText">New</span>}
+                              {numberOfReviews && (
+                              <> · {numberOfReviews}<span className="grey-text">{numberOfReviews === 1 ? ' review' : ' reviews'}</span></>
+                              )}
+                         </span>
+                       </p>
                  </div>
                  {/* ++++++++++++++++++++++++++Reserve Btn+++++++++++++++++++++++++++++++++ */}
                  <button  className="reserve-btn" type="button" onClick={() => alert("Feature Coming Soon...")}>Reserve</button>
