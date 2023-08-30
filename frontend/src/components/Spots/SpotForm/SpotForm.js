@@ -11,10 +11,10 @@ import { GetCountries, GetState, GetCity } from "react-country-state-city";
 
 // import FormError from "./FormError";
 
-import TextInput from "./TextInput";
-import { LabeledInput } from './LabeledInput';
-import { LabeledTextarea } from './LabeledTextarea';
-import SelectInput from './SelectInput';
+import TextInput from "../../Inputs/TextInput";
+import { LabeledInput } from '../../Inputs/LabeledInput';
+import { LabeledTextarea } from '../../Inputs/LabeledTextarea';
+import SelectInput from '../../Inputs/SelectInput';
 
 
 // import { Select } from 'antd';
@@ -123,8 +123,8 @@ export default function SpotForm({ formType, spotId }) {
     if (!country) errors.country = "Country is required";
     if (!city) errors.city = "City is required";
     if (!state) errors.state = "State is required";
-    if (!lat) errors.lat = "Latitude is required";
-    if (!lng) errors.lng = "Longitude is required";
+    // if (!lat) errors.lat = "Latitude is required";
+    // if (!lng) errors.lng = "Longitude is required";
     if (!name) errors.name = "Name is required";
     if (!description) errors.description = "Description is required";
     if (!price) errors.price = "Price is required";
@@ -286,10 +286,13 @@ export default function SpotForm({ formType, spotId }) {
         }
         onSubmit={handleSubmit}
       >
-        <div className="form-div-container">
           <h1 className="form-header-h1">
             {formType === "Create" ? "Create a new Spot" : "Update your Spot"}
           </h1>
+        <div className="form-div-container">
+          {/* <h1 className="form-header-h1">
+            {formType === "Create" ? "Create a new Spot" : "Update your Spot"}
+          </h1> */}
           {/* ***************************Country*************************************** */}
           <div className="box-style location-main-container">
             <div className="form-h2-h3-div">
@@ -299,7 +302,6 @@ export default function SpotForm({ formType, spotId }) {
                 reservation.
               </h3>
             </div>
-            {/* <label htmlFor="country" className="form-label"> */}
 
             <LabeledInput title="Country" error={validationObj.country}>
               <SelectInput
@@ -347,9 +349,9 @@ export default function SpotForm({ formType, spotId }) {
             </div>
             {/* ****************************latitude and Longitude************************************ */}
 
-            <div className="lat-lng-container">
+            {/* <div className="lat-lng-container"> */}
               {/* ***************************latitude*************************************** */}
-              <LabeledInput title="Latitude" error={validationObj.lat}>
+              {/* <LabeledInput title="Latitude" error={validationObj.lat}>
                 <TextInput
                   type="number"
                   id="lat"
@@ -357,10 +359,10 @@ export default function SpotForm({ formType, spotId }) {
                   placeholder="latitude"
                   onChange={handleInputChange(setLat, "lat")}
                 />
-              </LabeledInput>
+              </LabeledInput> */}
 
               {/* ***************************Longitude*************************************** */}
-              <LabeledInput title="Longitude" error={validationObj.lng}>
+              {/* <LabeledInput title="Longitude" error={validationObj.lng}>
                 <TextInput
                   type="number"
                   id="lng"
@@ -368,8 +370,8 @@ export default function SpotForm({ formType, spotId }) {
                   placeholder="Longitude"
                   onChange={handleInputChange(setLng, "lng")}
                 />
-              </LabeledInput>
-            </div>
+              </LabeledInput> */}
+            {/* </div> */}
             <hr></hr>
             {/* ****************************description************************************ */}
             <div
@@ -388,7 +390,7 @@ export default function SpotForm({ formType, spotId }) {
                 </h3>
               </div>
               <LabeledTextarea
-                title="Description"
+                // title="Description"
                 error={validationObj.description}
               >
                 <textarea
@@ -409,7 +411,10 @@ export default function SpotForm({ formType, spotId }) {
                 makes your place special.
               </h3>
             </div>
-            <LabeledInput title="Name" error={validationObj.name}>
+            <LabeledInput
+              // title="Name"
+              error={validationObj.name}
+            >
               <TextInput
                 type="text"
                 id="name"
@@ -427,7 +432,10 @@ export default function SpotForm({ formType, spotId }) {
                 higher in search results.
               </h3>
             </div>
-            <LabeledInput title="Price" error={validationObj.price}>
+            <LabeledInput
+              // title="Price"
+              error={validationObj.price}
+            >
               <TextInput
                 type="number"
                 id="price"
@@ -449,38 +457,35 @@ export default function SpotForm({ formType, spotId }) {
 
                 {/* ****************************previewImage************************************ */}
                 <LabeledInput
-                  title="Preview Image URL"
+                  // title="Preview Image URL"
                   error={validationObj.previewImage}
                 >
                   <TextInput
                     id="previewImage"
                     placeholder="Preview Image URL"
                     value={previewImage}
-                    onChange={handleInputChange(
-                      setPreviewImage,
-                      "previewImage"
-                    )}
+                    onChange={handleInputChange(setPreviewImage, 'previewImage')}
                     type="url"
                   />
                 </LabeledInput>
 
                 {/* ****************************imageUrl2************************************ */}
                 <LabeledInput
-                  title="Image URL 2"
+                  // title="Image URL 2"
                   error={validationObj.imageUrl2}
                 >
                   <TextInput
                     id="imageUrl2"
                     placeholder="Image URL"
                     value={imageUrl2}
-                    onChange={handleInputChange(setImageUrl2, "imageUrl2")}
+                    onChange={handleInputChange(setImageUrl2, 'imageUrl2')}
                     type="url"
                   />
                 </LabeledInput>
 
                 {/* ****************************imageUrl3************************************ */}
                 <LabeledInput
-                  title="Image URL 3"
+                  // title="Image URL 3"
                   error={validationObj.imageUrl3}
                 >
                   <TextInput
@@ -494,7 +499,7 @@ export default function SpotForm({ formType, spotId }) {
 
                 {/* ****************************imageUrl4************************************ */}
                 <LabeledInput
-                  title="Image URL 4"
+                  // title="Image URL 4"
                   error={validationObj.imageUrl4}
                 >
                   <TextInput
@@ -508,7 +513,7 @@ export default function SpotForm({ formType, spotId }) {
 
                 {/* ****************************imageUrl5************************************ */}
                 <LabeledInput
-                  title="Image URL 5"
+                  // title="Image URL 5"
                   error={validationObj.imageUrl5}
                 >
                   <TextInput
@@ -519,7 +524,6 @@ export default function SpotForm({ formType, spotId }) {
                     type="url"
                   />
                 </LabeledInput>
-
                 <hr></hr>
               </>
             )}
@@ -529,7 +533,7 @@ export default function SpotForm({ formType, spotId }) {
           <button
             className="spot-form-btn"
             type="submit"
-            disabled={Object.keys(validationObj).length > 0}
+            // disabled={Object.keys(validationObj).length > 0}
           >
             {formType === "Create" ? "Create Spot" : "Update Spot"}
           </button>

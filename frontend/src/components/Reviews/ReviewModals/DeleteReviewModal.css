@@ -1,0 +1,34 @@
+/* #model-content{
+  border-radius: 30px;
+
+} */
+
+ .tile-parent1{
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px; */
+  border: black solid 4px;
+  border-radius: 10px;
+}
+#delete-review-header{
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.delete-btn button {
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color:  #FF5A5F;
+    border: black solid 1px;
+    box-shadow: 3px 3px 2px black;
+    color: white;
+    height: 30px
+  }
+
+.modal__buttons {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  gap: 10px;
+}

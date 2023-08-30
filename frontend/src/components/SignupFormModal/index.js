@@ -74,7 +74,7 @@ function SignupFormModal() {
                         required
                     />
                 </label>
-                {errors.email && <p>{errors.email}</p>}
+                {errors.email && <p className="errors">{errors.email}</p>}
 
                 {/* Username */}
                 <label className="label-signup">
@@ -87,7 +87,7 @@ function SignupFormModal() {
                         required
                     />
                 </label>
-                {errors.username && <p>{errors.username}</p>}
+                {errors.username && <p className="errors">{errors.username}</p>}
 
                 {/* First Name */}
                 <label className="label-signup">
@@ -100,7 +100,7 @@ function SignupFormModal() {
                         required
                     />
                 </label>
-                {errors.firstName && <p>{errors.firstName}</p>}
+                {errors.firstName && <p className="errors">{errors.firstName}</p>}
 
                 {/* Last Name */}
                 <label className="label-signup">
@@ -113,7 +113,7 @@ function SignupFormModal() {
                         required
                     />
                 </label>
-                {errors.lastName && <p>{errors.lastName}</p>}
+                {errors.lastName && <p className="errors">{errors.lastName}</p>}
 
                 {/* Password */}
                 <label className="label-signup">
@@ -126,7 +126,7 @@ function SignupFormModal() {
                         required
                     />
                 </label>
-                {errors.password && <p>{errors.password}</p>}
+                {errors.password && <p className="errors">{errors.password}</p>}
 
                 {/* Confirm Password */}
                 <label className="label-signup">
@@ -140,7 +140,7 @@ function SignupFormModal() {
                     />
                 </label>
                 {errors.confirmPassword && (
-                    <p>{errors.confirmPassword}</p>
+                    <p className="errors">{errors.confirmPassword}</p>
                 )}
 
                 <button type="submit" disabled={isSignupDisabled}>Sign Up</button>
