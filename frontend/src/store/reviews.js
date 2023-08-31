@@ -27,7 +27,7 @@ export const getAllReviewsThunk = (spotId) => async (dispatch) => {
 
     if (res.ok) {
       const { Reviews } = await res.json();
-      console.log('Fetched all reviews successfully. Reviews:', Reviews);
+      // console.log('Fetched all reviews successfully. Reviews:', Reviews);
       // dispatch(getAllReviews(normalizeArr(Reviews)));
       dispatch(actionGetReviews(Reviews));
       // dispatch(getAllSpots(Spots));
@@ -122,10 +122,10 @@ export default function reviewReducer(state = initialState, action) {
   let newState;
   switch (action.type) {
     case GET_ALL_REVIEWS:
-      console.log('State before:', state);
+      // console.log('State before:', state);
       newState = { ...state, reviews: { spot: {}, user: {} } };
       newState.reviews.spot = action.reviews;
-      console.log('State after:', newState);
+      // console.log('State after:', newState);
       return newState;
 
     // case CREATE_REVIEW:
@@ -138,9 +138,9 @@ export default function reviewReducer(state = initialState, action) {
     //   return { ...state, reviews: { ...state.reviews, spot: { ...state.reviews.spot, ...action.reviews } } };
 
     case 'CREATE_REVIEW':
-      return { ...state, reviews: { ...state.reviews, spot: { ...state.reviews.spot, [action.review.id]: action.review } } };
-
-
+      newState = { ...state, reviews: { ...state.reviews, spot: { ...state.reviews.spot } } };
+      newState.reviews.spot[action.review.id] = action.review;
+      return newState;
 
     default:
       return state;

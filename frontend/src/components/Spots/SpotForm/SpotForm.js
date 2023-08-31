@@ -50,6 +50,7 @@ export default function SpotForm({ formType, spotId }) {
   const [selectActive, setSelectActive] = useState(false);
 
   const sessionUser = useSelector((stateid) => stateid.session.user);
+  console.log("sessionUser from spotForm: ", sessionUser)
 
   // ***************useEffects***************
   useEffect(() => {
@@ -349,9 +350,9 @@ export default function SpotForm({ formType, spotId }) {
             </div>
             {/* ****************************latitude and Longitude************************************ */}
 
-            {/* <div className="lat-lng-container"> */}
+            <div className="lat-lng-container">
               {/* ***************************latitude*************************************** */}
-              {/* <LabeledInput title="Latitude" error={validationObj.lat}>
+              <LabeledInput title="Latitude" error={validationObj.lat}>
                 <TextInput
                   type="number"
                   id="lat"
@@ -359,10 +360,10 @@ export default function SpotForm({ formType, spotId }) {
                   placeholder="latitude"
                   onChange={handleInputChange(setLat, "lat")}
                 />
-              </LabeledInput> */}
+              </LabeledInput>
 
               {/* ***************************Longitude*************************************** */}
-              {/* <LabeledInput title="Longitude" error={validationObj.lng}>
+              <LabeledInput title="Longitude" error={validationObj.lng}>
                 <TextInput
                   type="number"
                   id="lng"
@@ -370,8 +371,8 @@ export default function SpotForm({ formType, spotId }) {
                   placeholder="Longitude"
                   onChange={handleInputChange(setLng, "lng")}
                 />
-              </LabeledInput> */}
-            {/* </div> */}
+              </LabeledInput>
+             </div>
             <hr></hr>
             {/* ****************************description************************************ */}
             <div

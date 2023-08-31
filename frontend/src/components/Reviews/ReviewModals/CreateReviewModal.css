@@ -11,7 +11,6 @@
   color: black;
 }
 #form-review{
-
 display: flex;
 justify-content: center;
 flex-direction: column;
@@ -20,11 +19,16 @@ height: 300px;
 border: solid 4px black;
 border-radius: 10px;
 }
+.review-form-h2 {
+  display: flex;
+  justify-content: center;
+}
 #form-review textarea {
 
 margin-left: 10px;
 margin-right: 10px;
 background-color: rgb(207, 219, 252);
+height: 111px;;
 }
 .star-container{
 text-align: center;

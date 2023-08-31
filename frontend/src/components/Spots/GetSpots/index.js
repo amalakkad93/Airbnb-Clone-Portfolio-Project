@@ -56,7 +56,7 @@ export default function GetSpots({ ownerMode = false }) {
                         <p className="p-style"><span className="span-style">${spot.price}</span> night{" "}</p>
                       </div>
                     </div>
-                    <div></div>
+                    {/* <div></div> */}
                   </div>
                 </Link>
                 {ownerMode && (

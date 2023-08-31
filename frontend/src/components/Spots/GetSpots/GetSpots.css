@@ -79,8 +79,8 @@
   /* max-width: 1024px; */
 }
 .spot-img-main-div{
-  /* overflow: hidden; */
-  /* height: 300px; */
+  overflow: hidden;
+  height: 340px;
 
 }
 .ownerSpot-box {
@@ -117,20 +117,25 @@
 
 .spot-city-state-rating-div {
   width: 100%;
-  text-decoration: none;
+  /* text-decoration: none; */
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   justify-content: space-between;
   align-items: center;
   font-size: 15px;
   gap: 58px;
+  /* height: 100%; */
 }
 .p-card-style {
   font-size: 15px;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 .avgRating-p-tag {
   color: #222222;
   font-weight: normal;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 .spot-city-state-rating-div p:last-child {
   font-weight: normal;

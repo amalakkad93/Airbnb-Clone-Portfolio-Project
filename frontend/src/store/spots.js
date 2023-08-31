@@ -128,6 +128,7 @@ export const deleteSpotThunk = (spotId) => async (dispatch) => {
 // ***************************getOwnerAllSpotsThunk**************************
 // these functions hit routes
 export const getOwnerAllSpotsThunk = () => async (dispatch) => {
+  
   const res = await csrfFetch("/api/spots/current");
 
   if (res.ok) {

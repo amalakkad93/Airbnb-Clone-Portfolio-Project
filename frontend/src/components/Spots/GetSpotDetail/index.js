@@ -21,14 +21,13 @@ export default function SpotDetail() {
   const reviews = useSelector((state) =>
     state.reviews.reviews.spot ? state.reviews.reviews.spot : null
   );
-
-    console.log("Reviews:", reviews);
-
-  console.log("Reviews from useSelector:", reviews);
+  const sessionUser = useSelector((state) => state.session.user);
 
   const avgRating = spot.avgStarRating ? spot.avgStarRating.toFixed(1) : "New";
   const numberOfReviews = spot.numReviews > 0 ? spot.numReviews : "";
-  console.log(numberOfReviews);
+  const userSpotReview = (sessionUser) ? Object.values(reviews).find((currentReview) => currentReview.userId === sessionUser.id) : {};
+
+  console.log("**************userSpotReview: ",userSpotReview)
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -36,19 +35,21 @@ export default function SpotDetail() {
     return date.toLocaleString("en-US", options);
   };
 
-  // console.log("***************************",spot)
 
   useEffect(() => {
-    console.log("Dispatching getSpotDetailThunk action");
+    // console.log("Dispatching getSpotDetailThunk action");
     dispatch(getSpotDetailThunk(spotId));
-    console.log("Dispatching getAllReviewsThunk action");
+    // console.log("Dispatching getAllReviewsThunk action");
     dispatch(getAllReviewsThunk(spotId)).finally(() => setLoading(false));
 
       }, [dispatch, spotId, reloadPage]);
 //   }, [spotId]);
+console.log("**********sessionUser: ", sessionUser)
+console.log("**********spot: ", spot)
+console.log("**********reviews: ", reviews)
 
-  if (!spot || !spot.id) return null;
-  if (loading || !spot || !spot.id) return <div>Loading...</div>;
+  if (!spot || !spot.id  ) return null;
+  // if (loading || !spot || !spot.id) return <div>Loading...</div>;
 
   return (
     <>
@@ -164,16 +165,20 @@ export default function SpotDetail() {
                   }`
                 : ""}{" "}
             </h2>
-            <OpenModalButton
-              className="post-review-btn"
-              buttonText="Post Your Review"
-              modalComponent={
-                <CreateReviewModal
-                  spotId={spot.id}
-                  setReloadPage={setReloadPage}
-                />
-              }
-            />
+            {!userSpotReview && !sessionUser &&
+            <>
+              <OpenModalButton
+                className="post-review-btn"
+                buttonText="Post Your Review"
+                modalComponent={
+                  <CreateReviewModal
+                    spotId={spot.id}
+                    setReloadPage={setReloadPage}
+                  />
+                }
+              />
+            </>
+            }
           </div>{" "}
 
           {/* =========Post Review Button========== */}
@@ -193,4 +198,5 @@ export default function SpotDetail() {
       </div>
     </>
   );
+
 }

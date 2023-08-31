@@ -47,7 +47,7 @@ export default function StarRatingInput({ rating, onChange }) {
 
   return (
     <div className="rating-input">
-      {[1, 2, 3, 4, 5].map(number => starsIcon(number))}
+      { [1, 2, 3, 4, 5].map(number => starsIcon(number)) }
     </div>
   );
 }
