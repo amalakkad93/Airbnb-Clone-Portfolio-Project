@@ -25,7 +25,7 @@ module.exports = {
         price: 1500.00,
       },
       {
-        ownerId: 3,
+        ownerId: 2,
         address: "2020 Wainiha Powerhouse Rd",
         city: "Hanalei",
         state: " Hawaii",

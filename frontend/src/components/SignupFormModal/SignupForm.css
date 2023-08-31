@@ -93,3 +93,6 @@ input, label {
   font-weight: bold;
   margin-bottom: 10px;
 }
+  .errors {
+    color: red;
+  }

@@ -1,5 +1,6 @@
 p, span {
-  font-size: 14pt;
+  /* font-size: 14pt; */
+  font-size: 15px;
   font-weight: normal;
   font-family: 'Nunito', sans-serif;
   /* font-family: 'Nunito Sans', sans-serif; */
