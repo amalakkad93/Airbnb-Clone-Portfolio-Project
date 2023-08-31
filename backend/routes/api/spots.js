@@ -249,7 +249,6 @@ router.get('/:spotId', async (req, res) => {
 
     return res.json(response);
   } else {
-
     return createErrorHandler(404, "Spot couldn't be found", {}, res);
   }
 });
@@ -357,26 +356,47 @@ router.get('/:spotId/reviews', async (req, res) => {
 });
 
 // ======== Create a Review for a Spot based on the Spot's id ========
+// router.post('/:spotId/reviews', requireAuth, authCatch, validateReview, async (req, res) => {
+//   const { review, stars } = req.body;
+//   const spotId = req.params.spotId;
+//   const userId = req.user.id;
+
+//   const oldReview = await Review.findOne({ where: { userId: req.user.id, spotId: req.params.spotId } });
+
+//   if (oldReview) return createErrorHandler(500, "User already has a review for this spot", {}, res);
+
+//   const spot = await Spot.findOne({ where: { id: spotId } });
+
+//   if (spot) {
+//     const newReview = await Review.create({ userId, spotId, review, stars });
+//     return res.json(newReview);
+
+//   } else if (res.status(404)) {
+//     return createErrorHandler(404, "Spot couldn't be found", {}, res);
+//   }
+
+// });
+//*********************************************************************************************************** */
+//*********************************************************************************************************** */
 router.post('/:spotId/reviews', requireAuth, authCatch, validateReview, async (req, res) => {
   const { review, stars } = req.body;
   const spotId = req.params.spotId;
   const userId = req.user.id;
 
-  const oldReview = await Review.findOne({ where: { userId: req.user.id, spotId: req.params.spotId } });
+  const oldReview = await Review.findOne({ where: { userId, spotId } });
 
-  if (oldReview) return createErrorHandler(500, "User already has a review for this spot", {}, res);
+  if (oldReview) return createErrorHandler(409, "User already has a review for this spot", {}, res);
 
   const spot = await Spot.findOne({ where: { id: spotId } });
 
-  if (spot) {
-    const newReview = await Review.create({ userId, spotId, review, stars });
-    return res.json(newReview);
+  if (!spot) return createErrorHandler(404, "Spot couldn't be found", {}, res);
 
-  } else if (res.status(404)) {
-    return createErrorHandler(404, "Spot couldn't be found", {}, res);
-  }
-
+  const newReview = await Review.create({ userId, spotId, review, stars });
+  return res.json(newReview);
 });
+
+//*********************************************************************************************************** */
+//*********************************************************************************************************** */
 
 //======== Get all Bookings for a Spot based on the Spot's id ========
 router.get('/:spotId/bookings', requireAuth, authCatch, async (req, res) => {

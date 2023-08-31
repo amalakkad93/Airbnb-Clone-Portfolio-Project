@@ -65,76 +65,82 @@ function SignupFormModal() {
             <form onSubmit={handleSubmit} className="signup-form">
                 {/* Email */}
                 <label className="label-signup">
-                    <div className="label-title">Email</div>
+                    {/* <div className="label-title">Email</div> */}
                     <input
                         type="text"
                         value={email}
+                        placeholder="Email"
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
                 </label>
-                {errors.email && <p>{errors.email}</p>}
+                {errors.email && <p className="errors">{errors.email}</p>}
 
                 {/* Username */}
                 <label className="label-signup">
-                    <div>Username</div>
+                    {/* <div>Username</div> */}
                     <input
                         type="text"
+                        placeholder="Username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
                     />
                 </label>
-                {errors.username && <p>{errors.username}</p>}
+                {errors.username && <p className="errors">{errors.username}</p>}
 
                 {/* First Name */}
                 <label className="label-signup">
-                    <div>First Name</div>
+                    {/* <div>First Name</div> */}
                     <input
                         type="text"
+                        placeholder="First Name"
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
                         required
                     />
                 </label>
-                {errors.firstName && <p>{errors.firstName}</p>}
+                {errors.firstName && <p className="errors">{errors.firstName}</p>}
 
                 {/* Last Name */}
                 <label className="label-signup">
-                    <div>Last Name</div>
+                    {/* <div>Last Name</div> */}
                     <input
                         type="text"
+                        placeholder="Last Name"
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
                         required
                     />
                 </label>
-                {errors.lastName && <p>{errors.lastName}</p>}
+                {errors.lastName && <p className="errors">{errors.lastName}</p>}
 
                 {/* Password */}
                 <label className="label-signup">
-                    <div>Password</div>
+                    {/* <div>Password</div> */}
                     <input
                         type="password"
+                        placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
                 </label>
-                {errors.password && <p>{errors.password}</p>}
+                {errors.password && <p className="errors">{errors.password}</p>}
 
                 {/* Confirm Password */}
                 <label className="label-signup">
-                    <div>Confirm Password</div>
+                    {/* <div>Confirm Password</div> */}
                     <input
                         type="password"
+                        placeholder="Confirm Password"
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         required
                     />
                 </label>
                 {errors.confirmPassword && (
-                    <p>{errors.confirmPassword}</p>
+                    <p className="errors">{errors.confirmPassword}</p>
                 )}
 
                 <button type="submit" disabled={isSignupDisabled}>Sign Up</button>

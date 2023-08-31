@@ -9,6 +9,17 @@
 @import "@fontsource/roboto/700.css";
 body {
   padding: 22px;
+  /* padding-left: 18px;
+  padding-top: 0px;
+  padding-right: 10px; */
+
+    /* margin: 0; */
+    /* padding: 0; */
+    /* width: 100%;
+    height: 100%; */
+    /* overflow-x:auto; */
+    height: 2402px;
+
 }
 button {
   background-color: #FF5A5F;
@@ -31,4 +42,20 @@ p {
   font-family: 'Nunito', sans-serif;
   /* font-size: 14pt; */
   /* font-weight:normal; */
+}
+.app-container {
+  /* width: 100%;
+  max-width: 1000px; */
+  /* margin: 0 auto; */
+  /* margin-top: 50px; */
+  /* flex-direction: column; */
+}
+html{
+  /* width: 1024px; */
+  /* max-width: 1024px; */
+  max-width: 1350px;
+  margin: 0 auto;  /* centers the container */
+  background-color: #fff;  /* set a different background color for the container */
+  /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+  box-sizing: border-box;
 }

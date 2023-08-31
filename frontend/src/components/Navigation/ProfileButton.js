@@ -46,9 +46,11 @@ function ProfileButton({ user }) {
     e.preventDefault();
     dispatch(sessionActions.logout());
     closeMenu();
+    navigate('/');
   };
 
-  const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
+  // const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
+  const ulClassName = "profile-dropdown";
 
   return (
     <>
@@ -59,44 +61,50 @@ function ProfileButton({ user }) {
           <FontAwesomeIcon icon={faUserCircle} className="profile-icon" />
         </button>
       </div>
+      <div className="menu-drop-down">
 
-      <ul className={ulClassName} ref={ulRef}>
+
+      {/* <ul className={ulClassName} ref={ulRef}> */}
+      <ul className={ulClassName} ref={ulRef} style={{ display: showMenu ? 'block' : 'none' }}>
         {user ? (
           <>
-            <li>{user.username}</li>
-            <li>{user.firstName} {user.lastName}</li>
-            <li>{user.email}</li>
-            <li><button className="Manage-spot-button" onClick={ (e) => {navigate('/owner/spots')}}>Manage Spots</button></li>
-            <li><button type="button" onClick={(e)=>{ navigate('/reviews/current') }}>Manage Reviews</button></li>
-            <li><button onClick={logout} className="buttons">Log Out</button></li>
+            {/* <li>{user.username}</li> */}
+            <ul className="center-menu" style={{ color: "black"}}>{user.username}</ul>
+            <ul className="center-menu">{user.firstName} {user.lastName}</ul>
+            <ul className="center-menu">{user.email}</ul>
+            <ul className="center-menu"><button className="Manage-spot-button" onClick={ (e) => {closeMenu(); navigate('/owner/spots')}}>Manage Spots</button></ul>
+            <ul><button type="button" className="center-menu" onClick={(e)=>{closeMenu(); navigate('/reviews/current') }}>Manage Reviews</button></ul>
+            <ul><button onClick={logout} className="buttons center-menu">Log Out</button></ul>
           </>
         ) : (
           <>
-          <li>
+          <ul>
             <OpenModalMenuItem
               itemText="Log In"
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
               />
-          </li>
-          <li>
+          </ul>
+          <ul>
             <OpenModalMenuItem
               itemText="Sign Up"
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
               />
-          </li>
-          <li>
+          </ul>
+          <ul>
           <button className="buttons" onClick={(e) =>{
             const credential = "Demo-lition"
             const password = "password"
             closeMenu()
             return dispatch(sessionActions.login({credential, password}))
           }}>Demo User</button>
-          </li>
+          </ul>
           </>
         )}
       </ul>
+
+      </div>
     </div>
     </>
   );
