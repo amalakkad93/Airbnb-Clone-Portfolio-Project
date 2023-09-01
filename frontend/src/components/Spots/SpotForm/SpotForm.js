@@ -258,8 +258,10 @@ export default function SpotForm({ formType, spotId }) {
         const newlyCreateSpot = await dispatch(
           createSpotThunk(spot, newSpotImage, sessionUser)
         );
+        const newSpot= await dispatch(getSpotDetailThunk(newlyCreateSpot.id))
 
-        if (newlyCreateSpot.id) navigate(`/spots/${newlyCreateSpot.id}`);
+        // if (newlyCreateSpot.id) navigate(`/spots/${newlyCreateSpot.id}`);
+        if (newlyCreateSpot.id) navigate(`/spots/${newSpot.id}`);
         else throw new Error("Failed to create spot");
       }
       if (formType === "Edit") {

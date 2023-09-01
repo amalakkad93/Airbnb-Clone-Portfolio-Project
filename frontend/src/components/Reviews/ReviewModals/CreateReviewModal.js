@@ -81,7 +81,7 @@ export default function CreateReviewModal({ spotId, setReloadPage }) {
                     <span> Stars</span>
                 </p>
                 {errors.stars && <div className="error">{errors.stars}</div>}
-                <button id="submit-review-btn" type="submit" disabled={submitButtonDisabled}>
+                <button id="review-btn" type="submit" disabled={submitButtonDisabled}>
                     Submit your Review
                 </button>
             </form>
