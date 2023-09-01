@@ -12,10 +12,9 @@ import { GetCountries, GetState, GetCity } from "react-country-state-city";
 // import FormError from "./FormError";
 
 import TextInput from "../../Inputs/TextInput";
-import { LabeledInput } from '../../Inputs/LabeledInput';
-import { LabeledTextarea } from '../../Inputs/LabeledTextarea';
-import SelectInput from '../../Inputs/SelectInput';
-
+import { LabeledInput } from "../../Inputs/LabeledInput";
+import { LabeledTextarea } from "../../Inputs/LabeledTextarea";
+import SelectInput from "../../Inputs/SelectInput";
 
 // import { Select } from 'antd';
 // import 'antd/dist/antd.css';
@@ -37,7 +36,7 @@ export default function SpotForm({ formType, spotId }) {
   const [lng, setLng] = useState(1);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(0);
   const [previewImage, setPreviewImage] = useState("");
   const [imageUrl2, setImageUrl2] = useState("");
   const [imageUrl3, setImageUrl3] = useState("");
@@ -50,7 +49,6 @@ export default function SpotForm({ formType, spotId }) {
   const [selectActive, setSelectActive] = useState(false);
 
   const sessionUser = useSelector((stateid) => stateid.session.user);
-  console.log("sessionUser from spotForm: ", sessionUser)
 
   // ***************useEffects***************
   useEffect(() => {
@@ -80,8 +78,8 @@ export default function SpotForm({ formType, spotId }) {
     if (country) {
       GetState(country)
         .then((states) => setStateList(states))
-        .catch((error) => {
-          console.error("Error fetching states:", error);
+        .catch((err) => {
+          console.error("Error fetching states:", err);
         });
     }
   }, [country]);
@@ -91,8 +89,8 @@ export default function SpotForm({ formType, spotId }) {
     if (state) {
       GetCity(country, state)
         .then((cities) => setCityList(cities))
-        .catch((error) => {
-          console.error("Error fetching cities:", error);
+        .catch((err) => {
+          console.error("Error fetching cities:", err);
         });
     }
   }, [state]);
@@ -110,8 +108,17 @@ export default function SpotForm({ formType, spotId }) {
   //     });
   //   }
   // };
+
+  // const clearValidationError = (validationField) => {
+  //   setValidationObj((prev) => ({ ...prev, [validationField]: null }));
+  // };
+
   const clearValidationError = (validationField) => {
-    setValidationObj((prev) => ({ ...prev, [validationField]: null }));
+    setValidationObj((prev) => {
+      const newObj = { ...prev };
+      delete newObj[validationField];
+      return newObj;
+    });
   };
 
   // ****************************************
@@ -127,7 +134,7 @@ export default function SpotForm({ formType, spotId }) {
     // if (!lat) errors.lat = "Latitude is required";
     // if (!lng) errors.lng = "Longitude is required";
     if (!name) errors.name = "Name is required";
-    if (!description) errors.description = "Description is required";
+    if (description.length < 30) errors.description = "Description needs a minimum of 30 characters";
     if (!price) errors.price = "Price is required";
 
     return errors;
@@ -226,7 +233,6 @@ export default function SpotForm({ formType, spotId }) {
 
     if (Object.keys(errorsObj).length) {
       setValidationObj(errorsObj);
-
       return;
     }
 
@@ -278,6 +284,7 @@ export default function SpotForm({ formType, spotId }) {
     }
   };
 
+  console.log("validationObj:    ", validationObj);
   // ****************************************
   return (
     <div className="form-container">
@@ -287,13 +294,14 @@ export default function SpotForm({ formType, spotId }) {
         }
         onSubmit={handleSubmit}
       >
-          <h1 className="form-header-h1">
-            {formType === "Create" ? "Create a new Spot" : "Update your Spot"}
-          </h1>
+        <h1 className="form-header-h1">
+          {formType === "Create" ? "Create a new Spot" : "Update your Spot"}
+        </h1>
         <div className="form-div-container">
           {/* <h1 className="form-header-h1">
             {formType === "Create" ? "Create a new Spot" : "Update your Spot"}
           </h1> */}
+
           {/* ***************************Country*************************************** */}
           <div className="box-style location-main-container">
             <div className="form-h2-h3-div">
@@ -303,6 +311,8 @@ export default function SpotForm({ formType, spotId }) {
                 reservation.
               </h3>
             </div>
+
+            {/* <div className="error-container"> <p>State</p>{validationObj.stateid && (<p className="errors">{validationObj.stateid}</p>)}</div> */}
 
             <LabeledInput title="Country" error={validationObj.country}>
               <SelectInput
@@ -314,6 +324,7 @@ export default function SpotForm({ formType, spotId }) {
             </LabeledInput>
             {/* ****************************Address************************************ */}
 
+            {/* <div className="error-container"><p>Street Address</p>{validationObj.address && (<p className="errors">{validationObj.address}</p>)}</div> */}
             <LabeledInput title="Street Address" error={validationObj.address}>
               <TextInput
                 id="address"
@@ -328,6 +339,7 @@ export default function SpotForm({ formType, spotId }) {
             {/* *****************************City and State*********************************** */}
             <div className="city-state-container">
               {/* ***************************City*************************************** */}
+              {/* <div className="error-container"><p>city</p>{validationObj.cityid && (<p className="errors">{validationObj.cityid}</p>)}</div> */}
               <LabeledInput title="City" error={validationObj.city}>
                 <SelectInput
                   value={city}
@@ -338,6 +350,7 @@ export default function SpotForm({ formType, spotId }) {
                 />
               </LabeledInput>
               {/* ***************************State*************************************** */}
+              {/* <div className="error-container"><p>State</p>{validationObj.stateid && (<p className="errors">{validationObj.stateid}</p>)}</div> */}
               <LabeledInput title="State" error={validationObj.state}>
                 <SelectInput
                   value={state}
@@ -350,20 +363,21 @@ export default function SpotForm({ formType, spotId }) {
             </div>
             {/* ****************************latitude and Longitude************************************ */}
 
-            <div className="lat-lng-container">
+            {/* <div className="lat-lng-container"> */}
               {/* ***************************latitude*************************************** */}
-              <LabeledInput title="Latitude" error={validationObj.lat}>
-                <TextInput
+              {/* <LabeledInput title="Latitude" error={validationObj.lat}> */}
+                {/* <TextInput
                   type="number"
                   id="lat"
                   value={lat}
                   placeholder="latitude"
                   onChange={handleInputChange(setLat, "lat")}
                 />
-              </LabeledInput>
+              </LabeledInput> */}
 
               {/* ***************************Longitude*************************************** */}
-              <LabeledInput title="Longitude" error={validationObj.lng}>
+              {/* <div className="error-container"><p>Longitude</p>{validationObj.lng && (<p className="errors">{validationObj.lng}</p>)}</div> */}
+              {/* <LabeledInput title="Longitude" error={validationObj.lng}>
                 <TextInput
                   type="number"
                   id="lng"
@@ -371,8 +385,8 @@ export default function SpotForm({ formType, spotId }) {
                   placeholder="Longitude"
                   onChange={handleInputChange(setLng, "lng")}
                 />
-              </LabeledInput>
-             </div>
+              </LabeledInput> */}
+            {/* </div> */}
             <hr></hr>
             {/* ****************************description************************************ */}
             <div
@@ -390,18 +404,16 @@ export default function SpotForm({ formType, spotId }) {
                   the neighborhood.
                 </h3>
               </div>
-              <LabeledTextarea
-                // title="Description"
-                error={validationObj.description}
-              >
+              <LabeledTextarea>
                 <textarea
                   id="description"
-                  placeholder="Please write at least 30 characters"
+                  placeholder="Description"
                   value={description}
                   onChange={handleInputChange(setDescription, "description")}
                   className={formType === "Edit" ? "edit-form-textarea" : ""}
                 />
               </LabeledTextarea>
+              <div className="error-container">{validationObj.description && (<p className="errors">{validationObj.description}</p>)}</div>
             </div>
             <hr></hr>
             {/* ****************************Name************************************ */}
@@ -412,10 +424,7 @@ export default function SpotForm({ formType, spotId }) {
                 makes your place special.
               </h3>
             </div>
-            <LabeledInput
-              // title="Name"
-              error={validationObj.name}
-            >
+            <LabeledInput>
               <TextInput
                 type="text"
                 id="name"
@@ -424,6 +433,7 @@ export default function SpotForm({ formType, spotId }) {
                 onChange={handleInputChange(setName, "name")}
               />
             </LabeledInput>
+            {validationObj.name && <p className="errors">{validationObj.name}</p>}
             <hr></hr>
             {/* ****************************Price************************************ */}
             <div className="form-h2-h3-div">
@@ -433,10 +443,7 @@ export default function SpotForm({ formType, spotId }) {
                 higher in search results.
               </h3>
             </div>
-            <LabeledInput
-              // title="Price"
-              error={validationObj.price}
-            >
+            <LabeledInput>
               <TextInput
                 type="number"
                 id="price"
@@ -445,6 +452,7 @@ export default function SpotForm({ formType, spotId }) {
                 onChange={handleInputChange(setPrice, "price")}
               />
             </LabeledInput>
+            {validationObj.price && (<p className="errors">{validationObj.price}</p>)}
             <hr></hr>
             {/* ****************************Images************************************ */}
             {formType === "Create" && (
@@ -457,38 +465,35 @@ export default function SpotForm({ formType, spotId }) {
                 </div>
 
                 {/* ****************************previewImage************************************ */}
-                <LabeledInput
-                  // title="Preview Image URL"
-                  error={validationObj.previewImage}
-                >
+
+                <LabeledInput>
                   <TextInput
                     id="previewImage"
                     placeholder="Preview Image URL"
                     value={previewImage}
-                    onChange={handleInputChange(setPreviewImage, 'previewImage')}
+                    onChange={handleInputChange(
+                      setPreviewImage,
+                      "previewImage"
+                    )}
                     type="url"
                   />
                 </LabeledInput>
+                {validationObj.previewImage && ( <p className="errors">{validationObj.previewImage}</p>)}
 
                 {/* ****************************imageUrl2************************************ */}
-                <LabeledInput
-                  // title="Image URL 2"
-                  error={validationObj.imageUrl2}
-                >
+                <LabeledInput>
                   <TextInput
                     id="imageUrl2"
                     placeholder="Image URL"
                     value={imageUrl2}
-                    onChange={handleInputChange(setImageUrl2, 'imageUrl2')}
+                    onChange={handleInputChange(setImageUrl2, "imageUrl2")}
                     type="url"
                   />
                 </LabeledInput>
+                {validationObj.imageUrl2 && <p className="errors">{validationObj.imageUrl2}</p>}
 
                 {/* ****************************imageUrl3************************************ */}
-                <LabeledInput
-                  // title="Image URL 3"
-                  error={validationObj.imageUrl3}
-                >
+                <LabeledInput>
                   <TextInput
                     id="imageUrl3"
                     placeholder="Image URL"
@@ -497,12 +502,10 @@ export default function SpotForm({ formType, spotId }) {
                     type="url"
                   />
                 </LabeledInput>
+                {validationObj.imageUrl3 && <p className="errors">{validationObj.imageUrl3}</p>}
 
                 {/* ****************************imageUrl4************************************ */}
-                <LabeledInput
-                  // title="Image URL 4"
-                  error={validationObj.imageUrl4}
-                >
+                <LabeledInput>
                   <TextInput
                     id="imageUrl4"
                     placeholder="Image URL"
@@ -511,12 +514,10 @@ export default function SpotForm({ formType, spotId }) {
                     type="url"
                   />
                 </LabeledInput>
+                {validationObj.imageUrl4 && <p className="errors">{validationObj.imageUrl4}</p>}
 
                 {/* ****************************imageUrl5************************************ */}
-                <LabeledInput
-                  // title="Image URL 5"
-                  error={validationObj.imageUrl5}
-                >
+                <LabeledInput>
                   <TextInput
                     id="imageUrl5"
                     placeholder="Image URL"
@@ -525,6 +526,7 @@ export default function SpotForm({ formType, spotId }) {
                     type="url"
                   />
                 </LabeledInput>
+                {validationObj.imageUrl5 && <p className="errors">{validationObj.imageUrl5}</p>}
                 <hr></hr>
               </>
             )}
@@ -534,7 +536,7 @@ export default function SpotForm({ formType, spotId }) {
           <button
             className="spot-form-btn"
             type="submit"
-            // disabled={Object.keys(validationObj).length > 0}
+            disabled={Object.keys(validationObj).length > 0}
           >
             {formType === "Create" ? "Create Spot" : "Update Spot"}
           </button>
