@@ -73,4 +73,3 @@ export default function GetSpots({ ownerMode = false }) {
   );
 }
 // className="p-card-style"
-

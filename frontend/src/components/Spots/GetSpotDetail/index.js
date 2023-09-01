@@ -82,7 +82,9 @@ export default function SpotDetail() {
               </p>
               <p className="avgRating-numberOfReviews-p-tag">
                 <span className="avgRating-numberOfReviews-span">
-                  ★ {spot.avgStarRating ? spot.avgStarRating.toFixed(1) : <span className="boldText">New</span>}
+                  {/* ★ {spot.avgStarRating ? spot.avgStarRating.toFixed(1) : <span className="boldText">New</span>} */}
+                  ★ {(spot.avgStarRating !== null && spot.avgStarRating !== undefined) ? spot.avgStarRating.toFixed(1) : <span className="boldText">New</span>}
+
                   {spot.numReviews > 0 && (
                     <>
                       {" "}
@@ -107,8 +109,13 @@ export default function SpotDetail() {
         </div>
         <div className="review-and-post-Review-button">
         <h2 className="avgRating-numofReviews">
-          ★ {spot.avgStarRating.toFixed(1)}
+          {/* ★ {spot.avgStarRating.toFixed(1)} */}
+          {/* ★ {(spot.avgStarRating !== null && spot.avgStarRating !== undefined) ? spot.avgStarRating.toFixed(1) : ""} */}
+
+          ★ {(spot.avgStarRating !== null && spot.avgStarRating !== undefined) ? spot.avgStarRating.toFixed(1) : <span className="boldText">New</span>}
+          {/* {spot?.numReviews > 0 && ` · ${spot.numReviews} ${spot.numReviews === 1 ? 'review' : 'reviews'}`} */}
           {spot.numReviews > 0 && ` · ${spot.numReviews} ${spot.numReviews === 1 ? 'review' : 'reviews'}`}
+
         </h2>
 
         {!userSpotReview && (spot.User.id !== sessionUser.id) &&

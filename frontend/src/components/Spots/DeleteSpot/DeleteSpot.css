@@ -3,7 +3,7 @@
 
 } */
 
- .tile-parent-delete-review{
+ .tile-parent-delete-spot{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,25 +36,25 @@
   margin-bottom: 20px;
   gap: 10px;
 }
-.delete-review-h1-p-tag {
+.delete-spot-h1-p-tag {
   margin-top: -28px;
 }
-.delete-keep-review-cancel-btn, .delete-review-h1-p-tag {
+.delete-keep-spot-cancel-btn, .delete-spot-h1-p-tag {
   height: 50%;
   width: 100%;
 }
-#delete-review-btn button[disabled] {
+#delete-spot-btn button[disabled] {
   background-color: grey;
   cursor: not-allowed;
 }{
   color: black;
 }
-#delete-review-btn:hover{
+#delete-spot-btn:hover{
 
   background-color:  #FF5A5F;
 
 }
-#delete-review-btn{
+#delete-spot-btn{
   /* background-color:  #FF5A5F; */
   background-color: grey;
   border: black solid 1px;
@@ -68,19 +68,19 @@
   height: 48px;
   cursor: pointer;
   }
-  #delete-review-btn:disabled{
+  #delete-spot-btn:disabled{
   background-color: gray;
   border: black solid 1px;
   box-shadow: none;
   }
 
-  .delete-review-h1-tag {
+  .delete-spot-h1-tag {
     display:flex;
     justify-content: center;
     align-items: center;
     /* margin-top: -46px; */
   }
-  .delete-review-p-tag {
+  .delete-spot-p-tag {
     font-weight: bold;
     display:flex;
     justify-content: center;
