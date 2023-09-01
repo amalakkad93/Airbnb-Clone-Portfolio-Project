@@ -29,11 +29,15 @@ export default function DeleteReviewModal({ reviewId, spotId, setReloadPage}) {
 
   return (
     <>
-      <div className='tile-parent1'>
-        <h1>Confirm Delete</h1>
-        <p>Are you sure you want to delete this review?</p>
-        <button onClick={handleDelete}>Delete</button>
-        <button onClick={closeModal}>Cancel</button>
+      <div className='tile-parent-delete-review'>
+        <div className="delete-review-h1-p-tag">
+          <h1 className="delete-review-h1-tag">Confirm Delete</h1>
+          <p className="delete-review-p-tag">Are you sure you want to delete this review?</p>
+        </div>
+        <div className="delete-keep-review-cancel-btn">
+          <button id="delete-review-btn" onClick={handleDelete}>Yes (Delete Review)</button>
+          <button id="delete-review-btn" onClick={closeModal}>No (Keep Review)</button>
+        </div>
         {/* <div className="modal__buttons">
           <button className='delete-btn' onClick={deleteReviewCallBack}>Yes (Delete Review)</button>
           <button className='cancel-btn' onClick={closeModal}>No (Keep Review)</button>
