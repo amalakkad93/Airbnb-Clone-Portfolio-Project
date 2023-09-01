@@ -21,7 +21,7 @@ export default function DeleteSpot({spotId}) {
   //       }
   //     });
   // };
-  const deleteSpotCallBack = async () => {
+  const handleDelete = async () => {
      await dispatch(deleteSpotThunk(spotId));
      await dispatch(getOwnerAllSpotsThunk());
      closeModal();
@@ -32,8 +32,8 @@ export default function DeleteSpot({spotId}) {
         <div>
           <h1>Confirm Delete</h1>
           <p>This action cannot be undone.</p>
-        <button onClick={deleteSpotCallBack}>Delete</button>
-        <button onClick={closeModal}>Cancel</button>
+          <button onClick={handleDelete}>Delete</button>
+          <button onClick={closeModal}>Cancel</button>
         </div>
     </>
   );

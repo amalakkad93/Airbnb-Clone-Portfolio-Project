@@ -11,7 +11,7 @@ import CreateSpotForm from "./components/Spots/SpotForm/CreateSpotForm";
 import EditSpotForm from "./components/Spots/SpotForm/EditSpotForm";
 
 // import CreateReviewModal from "./components/Reviews/ReviewModals/CreateReviewModal";
-// import DeleteReviewModal from "./components/Reviews/ReviewModals/DeleteReviewModal";
+import DeleteReviewModal from "./components/Reviews/ReviewModals/DeleteReviewModal";
 import './index.css'
 
 function App() {
