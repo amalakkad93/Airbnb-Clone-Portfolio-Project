@@ -22,7 +22,7 @@ module.exports = {
         hooks: true
       },
       url: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false,
       },
       preview: {

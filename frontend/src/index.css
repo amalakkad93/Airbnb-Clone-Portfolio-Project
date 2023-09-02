@@ -54,8 +54,8 @@ html{
   /* width: 1024px; */
   /* max-width: 1024px; */
   max-width: 1350px;
-  margin: 0 auto;  /* centers the container */
-  background-color: #fff;  /* set a different background color for the container */
+  margin: 0 auto;
+  background-color: #fff;  
   /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
   box-sizing: border-box;
 }

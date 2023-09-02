@@ -18,7 +18,6 @@ export default function DeleteReviewModal({ reviewId, spotId, setReloadPage}) {
   const handleDelete = async () => {
     try {
       await dispatch(deleteReviewThunk(reviewId));
-
       await dispatch(getAllReviewsThunk(spotId));
       closeModal();
       setReloadPage(prevState => !prevState);

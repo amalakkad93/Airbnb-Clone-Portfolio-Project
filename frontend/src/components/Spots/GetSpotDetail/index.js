@@ -68,11 +68,11 @@ export default function SpotDetail() {
         <div className="details-container">
           <div className="ownner-details-and-description-container">
             <h2 className="ownner-details">
-              {" "}
+              {/* {" "} */}
               Hosted by, {spot.User && spot.User.firstName}{" "}
               {spot.User && spot.User.lastName}
             </h2>
-            <p className="p-tag-same-font">{spot.description}</p>
+          <div> <p className="p-tag-same-font">{spot.description}</p></div>
           </div>
 
           <div className="callout-information-box">
@@ -107,6 +107,7 @@ export default function SpotDetail() {
             </button>
           </div>
         </div>
+        <hr></hr>
         <div className="review-and-post-Review-button">
         <h2 className="avgRating-numofReviews">
           {/* ★ {spot.avgStarRating.toFixed(1)} */}
@@ -120,7 +121,7 @@ export default function SpotDetail() {
 
         {!userSpotReview && (spot.User.id !== sessionUser.id) &&
           <OpenModalButton
-            className="post-review-btn"
+            className="post-delete-review-btn"
             buttonText="Post Your Review"
             modalComponent={
               <CreateReviewModal
