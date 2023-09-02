@@ -72,34 +72,36 @@ function ProfileButton({ user }) {
             <ul className="center-menu" style={{ color: "black"}}>{user.username}</ul>
             <ul className="center-menu">{user.firstName} {user.lastName}</ul>
             <ul className="center-menu">{user.email}</ul>
-            <ul className="center-menu"><button className="Manage-spot-button" onClick={ (e) => {closeMenu(); navigate('/owner/spots')}}>Manage Spots</button></ul>
-            <ul><button type="button" className="center-menu" onClick={(e)=>{closeMenu(); navigate('/reviews/current') }}>Manage Reviews</button></ul>
-            <ul><button onClick={logout} className="buttons center-menu">Log Out</button></ul>
+            <ul className="center-menu"><button className="Manage-spot-button center-menu1" onClick={ (e) => {closeMenu(); navigate('/owner/spots')}}>Manage Spots</button></ul>
+            <ul><button type="button" className="center-menu1" onClick={(e)=>{closeMenu(); navigate('/reviews/current') }}>Manage Reviews</button></ul>
+            <ul><button onClick={logout} className="buttons center-menu center-menu1">Log Out</button></ul>
           </>
         ) : (
           <>
-          <ul>
+          <ul className="center-menu">
             <OpenModalMenuItem
+            className="center-menu"
               itemText="Log In"
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
               />
           </ul>
-          <ul>
+          <ul  className="center-menu">
             <OpenModalMenuItem
+              className="center-menu"
               itemText="Sign Up"
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
               />
           </ul>
-          <ul>
-          <button className="buttons" onClick={(e) =>{
+          {/* <ul  className="center-menu">
+          <button className="center-menu" onClick={(e) =>{
             const credential = "Demo-lition"
             const password = "password"
             closeMenu()
             return dispatch(sessionActions.login({credential, password}))
           }}>Demo User</button>
-          </ul>
+          </ul> */}
           </>
         )}
       </ul>

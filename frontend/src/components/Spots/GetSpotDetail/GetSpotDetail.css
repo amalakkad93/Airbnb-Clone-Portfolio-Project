@@ -1,23 +1,13 @@
 p, span {
-  /* font-size: 14pt; */
   font-size: 15px;
   font-weight: normal;
   font-family: 'Nunito', sans-serif;
-  /* font-family: 'Nunito Sans', sans-serif; */
-  /* font-size: 24pt; */
-  /* font-weight: bold; */
-
 }
-/* h2 {
-  font-size: 24pt;
-  font-weight: bold;
-} */
-
 
 .tile-parent {
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
 .name-Location-container {
   display: flex;
@@ -47,10 +37,13 @@ p, span {
 
 .right-spot-image-container{
   display:inline-block;
+  /* display:flex; */
+  flex-direction:column;
+
   width:49.6%;
-  gap: 5px;
+  gap: 2px;
   /* border-radius: 10px; */
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 
 }
 .resize{
@@ -61,6 +54,7 @@ p, span {
   height:100%;
   object-fit: cover;
   padding: 5px;
+
 }
 .right-image{
   width:50%;
@@ -69,6 +63,7 @@ p, span {
 
   position: relative;
   overflow: hidden;
+
 }
 .right-image.top-right-rounded  {
   border-radius: 0 20px 0 0;
@@ -82,16 +77,23 @@ p, span {
   display: flex;
   flex-direction: row;
   margin-top: 13px;
-  padding-bottom: 35px;
-  border-bottom: 2px solid black;
+  /* padding-bottom: 35px; */
+  /* border-bottom: 2px solid black; */
 
-  /* flex-direction: column; */
+
   justify-content: space-between;
   align-items: center;
+
+  margin-left: -35px;
+  margin-left: 10px;
 }
 .ownner-details-and-description-container {
   margin-right: 15px;
   padding-left: 10px;
+  /* width: 60%; */
+  width: 50%;
+  /* margin: 0 auto; */
+  /* overflow: hidden; */
 }
 .ownner-details {
   /* border: 3px solid black;
@@ -103,18 +105,26 @@ p, span {
   font-size: 14pt;
   font-weight: 100;
   font-family: 'Nunito', sans-serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+.p-tag-same-font {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .callout-information-box {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  /* width: 70%; */
-  width: 1190px;
+  width: 40%;
+  /* width: 1190px; */
   padding-bottom: 10px;
   align-items: center;
   border: 3px solid black;
   border-radius: 0.5rem;
   gap: 0.25rem;
+  clear: both
 }
 .price-rating-numberOfReviews-container{
   display: flex;
@@ -123,7 +133,7 @@ p, span {
   justify-content: space-between;
 }
 .price-p-tag {
-  margin: 0.2rem;
+  /* margin: 0.2rem; */
   font-size: 1rem;
   color: var(--black);
 }
@@ -217,10 +227,10 @@ ReviewList {
   /* gap: 0.25rem; */
   border-bottom: 2px solid black;
 }
-.post-review-btn {
+/* .post-delete-review-btn {
   background-color: #FF5A5F;
 
-}
+} */
 .review-item {
   margin-bottom: 40px;
   margin-top: 40px;
@@ -237,4 +247,16 @@ ReviewList {
 .avgRating-numofReviews{
   font-size: 18pt;
   font-weight: bold;
+}
+.post-delete-review-btn:hover{
+    background-color:  #FF5A5F;
+}
+.post-delete-review-btn {
+  background-color: grey;
+border: black solid 1px;
+box-shadow: 1px 1px 1px black;
+margin-bottom: 20px;
+height: 30px;
+color: white;
+cursor: pointer;
 }

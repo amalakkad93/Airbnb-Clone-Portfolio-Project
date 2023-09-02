@@ -10,6 +10,11 @@ input, label {
   height: 40px;
   float: left;
 }
+.signup-h1-tag {
+  display: flex;
+  justify-content: center;
+  margin-top: -27px;
+}
 
 .signup-form button[disabled] {
   background-color: grey;
@@ -20,7 +25,8 @@ input, label {
 .signup-form {
   /* position: absolute; */
   width: 289px;
-  height: 401px;
+  /* height: 401px; */
+  height: 343px;
   background : white;
   z-index: 1000;
 
@@ -32,12 +38,12 @@ input, label {
   box-shadow: 0 15px 35px rgba(0,0,0,9);
 }
 
-
+/*
 .signup-formlabel {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-}
+} */
 .signup-form label:last-child {
   margin-bottom: 0;
 }
@@ -50,7 +56,9 @@ input, label {
   border-radius: 5px;
   border: 1px solid #e6e6e6;
   padding: 0 10px;
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: normal;
+  background-color: rgb(227, 233, 251);
 }
 .signup-form input:focus {
   outline: none;

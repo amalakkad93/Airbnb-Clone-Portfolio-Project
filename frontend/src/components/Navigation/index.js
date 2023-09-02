@@ -11,8 +11,9 @@ function Navigation({ isLoaded }) {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className="navBar-container">
+    <>
 
+    <div className="navBar-container">
       <div className="navBar-inner-container">
         <div className="navBar-logo-create-link">
           <NavLink exact to="/" className="navbar-logo">
@@ -45,6 +46,8 @@ function Navigation({ isLoaded }) {
         </div>
       </div>
     </div>
+   <hr className="line"></hr>
+    </>
   );
 }
 

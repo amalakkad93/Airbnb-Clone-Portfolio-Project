@@ -11,7 +11,8 @@
   margin-bottom: 0px;
   border: black solid 4px;
   border-radius: 10px;
-  height: 243px;
+  /* height: 243px; */
+  height: 283px;
   width: 337px;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -43,12 +44,12 @@
   height: 50%;
   width: 100%;
 }
-#delete-spot-btn button[disabled] {
+/* #delete-spot-btn button[disabled] {
   background-color: grey;
   cursor: not-allowed;
-}{
-  color: black;
-}
+} */
+
+
 #delete-spot-btn:hover{
 
   background-color:  #FF5A5F;

@@ -31,8 +31,8 @@
 //     if (formType === 'Create') {
 //       const createdReview = await dispatch(createReviewThunk(reviewToCreate));
 //       if (createdReview) {
-//         // Handle successful creation, redirect or show a success message.
-//         // For example:
+//
+//
 //         console.log('Review created successfully!', createdReview);
 //       }
 //     }
@@ -40,8 +40,7 @@
 //     if (formType === 'Edit') {
 //       const updatedReview = await dispatch(updateReview({ id: reviewId, ...reviewToCreate }));
 //       if (updatedReview) {
-//         // Handle successful update, redirect or show a success message.
-//         // For example:
+//         
 //         console.log('Review updated successfully!', updatedReview);
 //       }
 //     }

@@ -61,7 +61,8 @@ export default function GetSpots({ ownerMode = false }) {
                 </Link>
                 {ownerMode && (
                   <div className="owner-div update-delete-btns">
-                    <button className="owner-btn update-btn" onClick={() => navigate(`/spots/edit/${spot.id}`)}> Update </button>
+
+                    <button className="owner-btn post-delete-review-btn" onClick={() => navigate(`/spots/edit/${spot.id}`)}> Update </button>
                     <OpenModalButton buttonText="Delete" modalComponent={<DeleteSpot spotId={spot.id} />}/>
                   </div>
                 )}

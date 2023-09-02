@@ -17,7 +17,7 @@ function OpenModalButton({
     setModalContent(modalComponent);
   };
 
-  return <button className="post-review-btn" onClick={onClick}>{buttonText}</button>;
+  return <button className="post-delete-review-btn" onClick={onClick}>{buttonText}</button>;
 }
 
 // const Greeting = () => {
