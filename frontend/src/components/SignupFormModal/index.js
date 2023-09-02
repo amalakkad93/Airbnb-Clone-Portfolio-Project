@@ -63,6 +63,7 @@ function SignupFormModal() {
     return (
         <>
             <form onSubmit={handleSubmit} className="signup-form">
+                <h2 className="signup-h1-tag">Sign Up</h2>
                 {/* Email */}
                 <label className="label-signup">
                     {/* <div className="label-title">Email</div> */}

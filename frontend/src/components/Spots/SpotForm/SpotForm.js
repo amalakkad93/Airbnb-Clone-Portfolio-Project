@@ -36,7 +36,7 @@ export default function SpotForm({ formType, spotId }) {
   const [lng, setLng] = useState(1);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState("");
   const [previewImage, setPreviewImage] = useState("");
   const [imageUrl2, setImageUrl2] = useState("");
   const [imageUrl3, setImageUrl3] = useState("");
@@ -330,6 +330,7 @@ export default function SpotForm({ formType, spotId }) {
             <LabeledInput title="Street Address" error={validationObj.address}>
               <TextInput
                 id="address"
+                type="text"
                 label="Street Address"
                 value={address}
                 error={validationObj.address}
@@ -428,8 +429,8 @@ export default function SpotForm({ formType, spotId }) {
             </div>
             <LabeledInput>
               <TextInput
-                type="text"
                 id="name"
+                type="text"
                 value={name}
                 placeholder="Name of your spot"
                 onChange={handleInputChange(setName, "name")}
@@ -447,8 +448,8 @@ export default function SpotForm({ formType, spotId }) {
             </div>
             <LabeledInput>
               <TextInput
-                type="number"
                 id="price"
+                type="number"
                 value={price}
                 placeholder="Price per night (USD)"
                 onChange={handleInputChange(setPrice, "price")}
@@ -471,13 +472,13 @@ export default function SpotForm({ formType, spotId }) {
                 <LabeledInput>
                   <TextInput
                     id="previewImage"
+                    type="url"
                     placeholder="Preview Image URL"
                     value={previewImage}
                     onChange={handleInputChange(
                       setPreviewImage,
                       "previewImage"
                     )}
-                    type="url"
                   />
                 </LabeledInput>
                 {validationObj.previewImage && ( <p className="errors">{validationObj.previewImage}</p>)}
@@ -486,10 +487,10 @@ export default function SpotForm({ formType, spotId }) {
                 <LabeledInput>
                   <TextInput
                     id="imageUrl2"
+                    type="url"
                     placeholder="Image URL"
                     value={imageUrl2}
                     onChange={handleInputChange(setImageUrl2, "imageUrl2")}
-                    type="url"
                   />
                 </LabeledInput>
                 {validationObj.imageUrl2 && <p className="errors">{validationObj.imageUrl2}</p>}
@@ -498,10 +499,10 @@ export default function SpotForm({ formType, spotId }) {
                 <LabeledInput>
                   <TextInput
                     id="imageUrl3"
+                    type="url"
                     placeholder="Image URL"
                     value={imageUrl3}
                     onChange={handleInputChange(setImageUrl3, "imageUrl3")}
-                    type="url"
                   />
                 </LabeledInput>
                 {validationObj.imageUrl3 && <p className="errors">{validationObj.imageUrl3}</p>}
@@ -510,10 +511,10 @@ export default function SpotForm({ formType, spotId }) {
                 <LabeledInput>
                   <TextInput
                     id="imageUrl4"
+                    type="url"
                     placeholder="Image URL"
                     value={imageUrl4}
                     onChange={handleInputChange(setImageUrl4, "imageUrl4")}
-                    type="url"
                   />
                 </LabeledInput>
                 {validationObj.imageUrl4 && <p className="errors">{validationObj.imageUrl4}</p>}
@@ -522,10 +523,10 @@ export default function SpotForm({ formType, spotId }) {
                 <LabeledInput>
                   <TextInput
                     id="imageUrl5"
+                    type="url"
                     placeholder="Image URL"
                     value={imageUrl5}
                     onChange={handleInputChange(setImageUrl5, "imageUrl5")}
-                    type="url"
                   />
                 </LabeledInput>
                 {validationObj.imageUrl5 && <p className="errors">{validationObj.imageUrl5}</p>}
