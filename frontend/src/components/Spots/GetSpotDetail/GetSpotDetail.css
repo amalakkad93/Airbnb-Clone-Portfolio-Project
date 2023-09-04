@@ -8,12 +8,15 @@ p, span {
 .tile-parent {
   max-width: 1000px;
   margin: 0 auto;
+  /* border: 2px solid red; */
+
 }
 
 .name-Location-container {
   display: flex;
   flex-direction: column;
   padding-left: 8px;
+  margin-top: 36px;
 }
 
 
@@ -130,7 +133,7 @@ p, span {
 .ownner-details-and-description-container {
   margin-right: 15px;
   /* padding-left: 10px; */
-  width: 50%;
+  width: 650px;
 }
 
 .ownner-details {
@@ -157,7 +160,8 @@ p, span {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  width: 40%;
+  /* width: 40%; */
+  width: 304px;
   padding-bottom: 10px;
   align-items: center;
   border: 3px solid black;
