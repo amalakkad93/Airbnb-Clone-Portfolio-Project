@@ -285,6 +285,7 @@ export default function SpotForm({ formType, spotId }) {
       console.error("Error processing the spot:", error.message);
     }
   };
+  
   // ****************************************
   return (
     <div className="form-container">
