@@ -338,6 +338,7 @@ router.get('/:spotId/reviews', async (req, res) => {
       },
     ],
     where: { spotId: req.params.spotId },
+    order: [['createdAt', 'DESC']]
   });
 
   // if (reviews.length === 0) return createErrorHandler(404, "Spot not found", {}, res);
