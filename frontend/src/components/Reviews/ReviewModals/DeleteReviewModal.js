@@ -9,11 +9,7 @@ import './DeleteReviewModal.css'
 export default function DeleteReviewModal({ reviewId, spotId, setReloadPage}) {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
-  // const deleteReviewCallBack = async () => {
-  //   await dispatch(deleteReviewThunk(reviewId));
-  //   await dispatch(getAllReviewsOfCurrentUser());
-  //   closeModal();
-  // };
+
   const handleDelete = async () => {
     try {
       await dispatch(deleteReviewThunk(reviewId));
@@ -36,10 +32,6 @@ export default function DeleteReviewModal({ reviewId, spotId, setReloadPage}) {
           <button id="delete-review-btn" onClick={handleDelete}>Yes (Delete Review)</button>
           <button id="delete-review-btn" onClick={closeModal}>No (Keep Review)</button>
         </div>
-        {/* <div className="modal__buttons">
-          <button className='delete-btn' onClick={deleteReviewCallBack}>Yes (Delete Review)</button>
-          <button className='cancel-btn' onClick={closeModal}>No (Keep Review)</button>
-        </div> */}
       </div>
     </>
   );

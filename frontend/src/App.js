@@ -12,7 +12,7 @@ import EditSpotForm from "./components/Spots/SpotForm/EditSpotForm";
 import UserProfile from "./components/UserProfile/UserProfile";
 
 // import CreateReviewModal from "./components/Reviews/ReviewModals/CreateReviewModal";
-import DeleteReviewModal from "./components/Reviews/ReviewModals/DeleteReviewModal";
+// import DeleteReviewModal from "./components/Reviews/ReviewModals/DeleteReviewModal";
 import './index.css'
 
 function App() {
