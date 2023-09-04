@@ -9,7 +9,6 @@ import './DeleteReviewModal.css'
 export default function DeleteReviewModal({ reviewId, spotId, setReloadPage}) {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
-  console.log("reviewId: ", reviewId)
   // const deleteReviewCallBack = async () => {
   //   await dispatch(deleteReviewThunk(reviewId));
   //   await dispatch(getAllReviewsOfCurrentUser());

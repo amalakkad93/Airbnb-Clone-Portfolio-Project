@@ -286,7 +286,6 @@ export default function SpotForm({ formType, spotId }) {
     }
   };
 
-  console.log("validationObj:    ", validationObj);
   // ****************************************
   return (
     <div className="form-container">
