@@ -38,25 +38,28 @@ export default function GetSpots({ ownerMode = false }) {
             }
           </div>
         )}
-        <div className="spots-main-container grid-container">
+
+{/* ownerSpot-main-container ownerSpot-grid-container */}
+        {/* <div className={"spots-main-container grid-container"}> */}
+        <div className={`${ownerMode ? "ownerSpot-main-container ownerSpot-grid-container" : "spots-main-container grid-container" }`}>
           {spotsToDisplay &&
             spotsToDisplay.map((spot) => (
-              <div className="spot-img-main-div" key={spot.id}>
+              <div className={`${ownerMode ? "ownerSpot-spot-img-main-div" : "spot-img-main-div" }`} key={spot.id}>
                 <Link to={`/spots/${spot.id}`} style={{ textDecoration: "none", color: "var(--black)" }}>
                 <div className={`spot-box ${ownerMode ? "ownerSpot" : ""}`} title={spot.name}>
                     <img src={spot.previewImage} className={ ownerMode ? "ownerSpot-img" : "spot-img"} alt={spot.name} />
                     <div className="spot-info-flex">
                       {/* <h3 className="spot-title">{spot.name}</h3> */}
                       <div className="spot-city-state-rating-div">
-                        <p className="p-card-style">{`${spot.city}, ${spot.state}`}</p>
-                        {/* {spot.avgRating ? ( <p className="avgRating-p-tag">★{spot.avgRating.toFixed(1)}</p> ) : ( <p className="boldText">★New</p> )} */}
-                        <p className="avgRating-p-tag">★{spot.avgRating ? spot.avgRating.toFixed(1) : <span className="boldText">New</span>}</p>
+                          <p className="p-card-style location-p-tag">{`${spot.city}, ${spot.state}`}</p>
+                          {/* {spot.avgRating ? ( <p className="avgRating-p-tag">★{spot.avgRating.toFixed(1)}</p> ) : ( <p className="boldText">★New</p> )} */}
+                          <p className="avgRating-p-tag">★{spot.avgRating ? spot.avgRating.toFixed(1) : <span className="boldText">New</span>}</p>
                       </div>
                       <div className="price-div">
                         <p className="p-style"><span className="span-style">${spot.price}</span> night{" "}</p>
                       </div>
                     </div>
-                    {/* <div></div> */}
+                   
                   </div>
                 </Link>
                 {ownerMode && (
@@ -69,6 +72,7 @@ export default function GetSpots({ ownerMode = false }) {
               </div>
             ))}
         </div>
+
       </div>
     </>
   );

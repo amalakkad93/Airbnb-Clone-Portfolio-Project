@@ -1,12 +1,13 @@
 // frontend/src/components/Navigation/ProfileButton.js
 // frontend/src/components/Navigation/ProfileButton.js
 import React, { useState, useEffect, useRef } from "react";
+// import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle, faBars } from '@fortawesome/free-solid-svg-icons';
@@ -20,6 +21,7 @@ function ProfileButton({ user }) {
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
   const navigate = useNavigate();
+  const userInitials = user && `${user.firstName.charAt(0)}${user.lastName.charAt(0)}`;
 
   const openMenu = () => {
     if (showMenu) return;
@@ -58,7 +60,9 @@ function ProfileButton({ user }) {
       <div className="btn">
         <button className="navigation-btn" aria-label="Main navigation menu" onClick={openMenu}>
           <FontAwesomeIcon icon={faBars} className="menu-icon" />
-          <FontAwesomeIcon icon={faUserCircle} className="profile-icon" />
+          {/* <FontAwesomeIcon icon={faUserCircle} className="profile-icon" /> */}
+          {user && <div className="user-initials1">{userInitials.toUpperCase()}</div>}
+
         </button>
       </div>
       <div className="menu-drop-down">
@@ -69,9 +73,17 @@ function ProfileButton({ user }) {
         {user ? (
           <>
             {/* <li>{user.username}</li> */}
-            <ul className="center-menu" style={{ color: "black"}}>{user.username}</ul>
+            {/* <ul className="center-menu" style={{ color: "black"}}>{user.username}</ul>
             <ul className="center-menu">{user.firstName} {user.lastName}</ul>
-            <ul className="center-menu">{user.email}</ul>
+            <ul className="center-menu">{user.email}</ul> */}
+            <ul className="center-menu">
+            <Link to="/users/show" onClick={closeMenu} style={{ textDecoration: 'none', color: 'black', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+              <FontAwesomeIcon icon={faUserCircle} style={{ marginRight: '8px' }} />
+              <li className="center-menu center-menu-profile">Profile</li>
+            </Link>
+            </ul>
+
+
             <ul className="center-menu"><button className="Manage-spot-button center-menu1" onClick={ (e) => {closeMenu(); navigate('/owner/spots')}}>Manage Spots</button></ul>
             <ul><button type="button" className="center-menu1" onClick={(e)=>{closeMenu(); navigate('/reviews/current') }}>Manage Reviews</button></ul>
             <ul><button onClick={logout} className="buttons center-menu center-menu1">Log Out</button></ul>
