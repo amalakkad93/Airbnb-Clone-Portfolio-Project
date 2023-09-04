@@ -61,12 +61,6 @@ module.exports = {
 
         {
           spotId: 2,
-          userId: 1,
-          review: "Absolutely loved the spot! The view was breathtaking, and the amenities were top-notch. Highly recommend!",
-          stars: 5
-        },
-        {
-          spotId: 2,
           userId: 2,
           review: "What a hidden gem! The spot was even better than expected. Cozy, clean, and surrounded by nature. Can't wait to visit again!",
           stars: 5
@@ -115,20 +109,8 @@ module.exports = {
         },
         {
           spotId: 3,
-          userId: 2,
-          review: "The spot was okay, but it didn't quite live up to the hype. It was clean and comfortable, but there were a few issues with the amenities." ,
-          stars: 3
-        },
-        {
-          spotId: 3,
           userId: 3,
           review: "Not a bad spot, but not great either. The location was convenient, but the noise from the nearby road was a bit bothersome." ,
-          stars: 3
-        },
-        {
-          spotId: 3,
-          userId: 4,
-          review: "The spot had its pros and cons. The view was nice, but the furniture felt a bit outdated. It could use some improvements.",
           stars: 3
         },
         {
@@ -178,12 +160,6 @@ module.exports = {
           userId: 4,
           review: "We enjoyed our stay, but we can't ignore the fact that this spot was overpriced. While the location was beautiful, the accommodations could have been better for the cost. We might consider other options next time.",
           stars: 3
-        },
-        {
-          spotId: 4,
-          userId: 5,
-          review: "I can't recommend this spot enough! From the moment we arrived, we were blown away by the stunning views and luxurious amenities. It was worth every penny, and we had an unforgettable vacation.",
-          stars: 5
         },
         {
           spotId: 4,

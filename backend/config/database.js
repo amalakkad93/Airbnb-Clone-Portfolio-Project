@@ -24,3 +24,5 @@ module.exports = {
     }
   }
 };
+console.log('Config:', module.exports);
+
