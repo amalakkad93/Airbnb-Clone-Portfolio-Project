@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-     <div className="app-container">
+
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Routes>
@@ -38,7 +38,7 @@ function App() {
           <Route>Page Not Found</Route>
         </Routes>
       )}
-     </div>
+     
     </>
   );
 }

@@ -8,7 +8,7 @@
    background-color: #f3eded;
     border: none;
     height: 1px;
-    margin: 10px 0;
+    margin: 0px;
     /* width: 100%; */
     /* width: 1350px; */
 }
@@ -18,7 +18,8 @@
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   /* box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1); */
   /* padding: 12px 0; */
-  width: 100%;
+  /* width: 100%; */
+  width: 992px;
   height: 101px;
   /* max-width: 1200px; */
   /* margin: 0 auto; */
@@ -60,7 +61,8 @@
 }
 
 .logo{
-  height: 4rem;
+  /* height: 4rem; */
+  height: 46px;
   /* position: relative;
   overflow: hidden; */
   /* width: auto; */
@@ -101,6 +103,7 @@
   padding: 5px 10px;
   border-radius: 21px;
   border: 1px solid grey;
+  margin-right: 48px;
 }
 
 .menu-icon {
@@ -128,9 +131,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 130px;
-  right: 20px;
+  position: absolute;
+  top: 54px;
+  right:  -74px;
+  /* left: 1000px; */
   display: none;
   z-index: 1000;
   /* width: 200px; */
@@ -138,7 +142,7 @@
   background: white;
   /* list-style: none; */
   /* top: calc(100% + 5px); */
-  left: 90%;
+  /* left: 90%; */
   transform: translateX(-50%);
   width: 150px;
   border-radius: 5px;
@@ -282,4 +286,41 @@
   padding: 0;
   list-style: none;
   position: relative;
+}
+@media (min-width: 1024px) {
+  .navBar-container {
+      /* Adjust width accordingly. Here's an example, adjust based on your requirements */
+      width: 80%;
+      margin: 0 auto; /* This centers the container */
+  }
+}
+
+@media (min-width: 950px) and (max-width: 1023px) {
+  .navBar-container {
+      /* Adjust width accordingly */
+      width: 90%;
+      margin: 0 auto;
+  }
+}
+
+@media (min-width: 550px) and (max-width: 949px) {
+  .navBar-container {
+      /* Adjust width accordingly */
+      width: 95%;
+      margin: 0 auto;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 549px) {
+  .navBar-container {
+      width: 100%;
+      /* other properties... */
+  }
+}
+
+@media (max-width: 199px) {
+  .navBar-container {
+      width: 100%;
+
+  }
 }
