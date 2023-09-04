@@ -285,8 +285,6 @@ export default function SpotForm({ formType, spotId }) {
       console.error("Error processing the spot:", error.message);
     }
   };
-
-  console.log("validationObj:    ", validationObj);
   // ****************************************
   return (
     <div className="form-container">
